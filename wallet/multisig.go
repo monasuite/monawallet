@@ -8,7 +8,7 @@ package wallet
 import (
 	"errors"
 
-	"github.com/wakiyamap/monad/txscript"
+	"github.com/monasuite/monad/txscript"
 	"github.com/wakiyamap/monautil"
 	"github.com/wakiyamap/monawallet/waddrmgr"
 	"github.com/wakiyamap/monawallet/walletdb"

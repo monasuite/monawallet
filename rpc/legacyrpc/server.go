@@ -20,7 +20,7 @@ import (
 	"time"
 
 	"github.com/btcsuite/websocket"
-	"github.com/wakiyamap/monad/btcjson"
+	"github.com/monasuite/monad/btcjson"
 	"github.com/wakiyamap/monawallet/chain"
 	"github.com/wakiyamap/monawallet/wallet"
 )

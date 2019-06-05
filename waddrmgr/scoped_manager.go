@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/wakiyamap/monad/btcec"
-	"github.com/wakiyamap/monad/chaincfg"
+	"github.com/monasuite/monad/btcec"
+	"github.com/monasuite/monad/chaincfg"
 	"github.com/wakiyamap/monautil"
 	"github.com/wakiyamap/monautil/hdkeychain"
 	"github.com/wakiyamap/monawallet/internal/zero"

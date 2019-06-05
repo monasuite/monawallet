@@ -9,9 +9,9 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/wakiyamap/monad/btcec"
-	"github.com/wakiyamap/monad/txscript"
-	"github.com/wakiyamap/monad/wire"
+	"github.com/monasuite/monad/btcec"
+	"github.com/monasuite/monad/txscript"
+	"github.com/monasuite/monad/wire"
 	"github.com/wakiyamap/monautil"
 	"github.com/wakiyamap/monawallet/waddrmgr"
 	"github.com/wakiyamap/monawallet/wallet/txauthor"

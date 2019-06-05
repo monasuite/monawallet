@@ -30,7 +30,7 @@ encryption will extend to transactions as well.
 monawallet is not an SPV client and requires connecting to a local or
 remote monad instance for asynchronous blockchain queries and
 notifications over websockets.  Full monad installation instructions
-can be found [here](https://github.com/wakiyamap/monad).  An alternative
+can be found [here](https://github.com/monasuite/monad).  An alternative
 SPV mode that is compatible with monad and Bitcoin Core is planned for
 a future release.
 
@@ -60,7 +60,7 @@ Wallet clients can use one of two RPC servers:
 
 Install the latest MSIs available here:
 
-https://github.com/wakiyamap/monad/releases
+https://github.com/monasuite/monad/releases
 
 https://github.com/wakiyamap/monawallet/releases
 
@@ -182,7 +182,7 @@ PS> $editor $env:LOCALAPPDATA\Monawallet\monawallet.conf
 
 Linux/BSD/POSIX (Installed from source):
 ```bash
-$ cp $GOPATH/src/github.com/wakiyamap/monad/sample-monad.conf ~/.monad/monad.conf
+$ cp $GOPATH/src/github.com/monasuite/monad/sample-monad.conf ~/.monad/monad.conf
 $ cp $GOPATH/src/github.com/wakiyamap/monawallet/sample-monawallet.conf ~/.monawallet/monawallet.conf
 $ $EDITOR ~/.monad/monad.conf
 $ $EDITOR ~/.monawallet/monawallet.conf

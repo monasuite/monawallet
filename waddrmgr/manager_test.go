@@ -15,8 +15,8 @@ import (
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/wakiyamap/monad/chaincfg"
-	"github.com/wakiyamap/monad/chaincfg/chainhash"
+	"github.com/monasuite/monad/chaincfg"
+	"github.com/monasuite/monad/chaincfg/chainhash"
 	"github.com/wakiyamap/monautil"
 	"github.com/wakiyamap/monawallet/snacl"
 	"github.com/wakiyamap/monawallet/walletdb"

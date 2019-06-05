@@ -10,7 +10,7 @@ require (
 	github.com/jessevdk/go-flags v1.4.0
 	github.com/jrick/logrotate v1.0.0
 	github.com/lightninglabs/gozmq v0.0.0-20180324010646-462a8a753885
-	github.com/wakiyamap/monad v0.0.0-20190316043608-a9a7a7c9ca5c
+	github.com/monasuite/monad v0.0.0-20190316043608-a9a7a7c9ca5c
 	github.com/wakiyamap/monautil v0.0.0-20190122162447-650da7231055
 	github.com/wakiyamap/neutrino v0.0.0-20190317162137-0d489a5a823e
 	golang.org/x/crypto v0.0.0-20190313024323-a1f597ede03a

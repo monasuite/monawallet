@@ -6,7 +6,7 @@
 
 package rpchelp
 
-import "github.com/wakiyamap/monad/btcjson"
+import "github.com/monasuite/monad/btcjson"
 
 // Common return types.
 var (

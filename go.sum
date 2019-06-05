@@ -46,9 +46,9 @@ github.com/lightningnetwork/lnd/ticker v1.0.0 h1:S1b60TEGoTtCe2A0yeB+ecoj/kkS4qp
 github.com/lightningnetwork/lnd/ticker v1.0.0/go.mod h1:iaLXJiVgI1sPANIF2qYYUJXjoksPNvGNYowB8aRbpX0=
 github.com/onsi/ginkgo v1.6.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/gomega v1.4.1/go.mod h1:C1qb7wdrVGGVU+Z6iS04AVkA3Q65CEZX59MT0QO5uiA=
-github.com/wakiyamap/monad v0.0.0-20190117160027-d338af568999/go.mod h1:c3Ef6Md2+YQ764GYegZPH0lkvsa3QrQlMIqABueUFXg=
-github.com/wakiyamap/monad v0.0.0-20190316043608-a9a7a7c9ca5c h1:gyfwlO3/+7okaYCK2zUTWn/l84sChO67NrkWXH5Uh4E=
-github.com/wakiyamap/monad v0.0.0-20190316043608-a9a7a7c9ca5c/go.mod h1:c3Ef6Md2+YQ764GYegZPH0lkvsa3QrQlMIqABueUFXg=
+github.com/monasuite/monad v0.0.0-20190117160027-d338af568999/go.mod h1:c3Ef6Md2+YQ764GYegZPH0lkvsa3QrQlMIqABueUFXg=
+github.com/monasuite/monad v0.0.0-20190316043608-a9a7a7c9ca5c h1:gyfwlO3/+7okaYCK2zUTWn/l84sChO67NrkWXH5Uh4E=
+github.com/monasuite/monad v0.0.0-20190316043608-a9a7a7c9ca5c/go.mod h1:c3Ef6Md2+YQ764GYegZPH0lkvsa3QrQlMIqABueUFXg=
 github.com/wakiyamap/monautil v0.0.0-20180721224902-c1fba54cb210/go.mod h1:Tc0ZfwQnciD+0GtqI6dVBaAK2+mmIZGZqHO2y9dmUes=
 github.com/wakiyamap/monautil v0.0.0-20190122162447-650da7231055 h1:MFzIez8GfHuyxYgnfIITQenArNwtdwrhm0lkzv1Sh6k=
 github.com/wakiyamap/monautil v0.0.0-20190122162447-650da7231055/go.mod h1:Tc0ZfwQnciD+0GtqI6dVBaAK2+mmIZGZqHO2y9dmUes=

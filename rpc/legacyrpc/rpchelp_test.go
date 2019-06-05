@@ -18,7 +18,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/wakiyamap/monad/btcjson"
+	"github.com/monasuite/monad/btcjson"
 	"github.com/wakiyamap/monawallet/internal/rpchelp"
 )
 

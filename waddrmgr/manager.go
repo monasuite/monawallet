@@ -11,7 +11,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/wakiyamap/monad/chaincfg"
+	"github.com/monasuite/monad/chaincfg"
 	"github.com/wakiyamap/monautil"
 	"github.com/wakiyamap/monautil/hdkeychain"
 	"github.com/wakiyamap/monawallet/internal/zero"

@@ -7,7 +7,7 @@
 package helpers
 
 import (
-	"github.com/wakiyamap/monad/wire"
+	"github.com/monasuite/monad/wire"
 	"github.com/wakiyamap/monautil"
 )
 

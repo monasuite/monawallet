@@ -7,7 +7,7 @@ package txauthor_test
 import (
 	"testing"
 
-	"github.com/wakiyamap/monad/wire"
+	"github.com/monasuite/monad/wire"
 	"github.com/wakiyamap/monautil"
 	. "github.com/wakiyamap/monawallet/wallet/txauthor"
 	"github.com/wakiyamap/monawallet/wallet/txrules"

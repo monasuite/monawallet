@@ -5,7 +5,7 @@ import (
 	"encoding/hex"
 	"testing"
 
-	"github.com/wakiyamap/monad/wire"
+	"github.com/monasuite/monad/wire"
 	. "github.com/wakiyamap/monawallet/wallet/internal/txsizes"
 )
 

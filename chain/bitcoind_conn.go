@@ -9,10 +9,10 @@ import (
 	"time"
 
 	"github.com/lightninglabs/gozmq"
-	"github.com/wakiyamap/monad/chaincfg"
-	"github.com/wakiyamap/monad/chaincfg/chainhash"
-	"github.com/wakiyamap/monad/rpcclient"
-	"github.com/wakiyamap/monad/wire"
+	"github.com/monasuite/monad/chaincfg"
+	"github.com/monasuite/monad/chaincfg/chainhash"
+	"github.com/monasuite/monad/rpcclient"
+	"github.com/monasuite/monad/wire"
 )
 
 // BitcoindConn represents a persistent client connection to a bitcoind node

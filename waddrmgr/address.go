@@ -9,8 +9,8 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/wakiyamap/monad/btcec"
-	"github.com/wakiyamap/monad/txscript"
+	"github.com/monasuite/monad/btcec"
+	"github.com/monasuite/monad/txscript"
 	"github.com/wakiyamap/monautil"
 	"github.com/wakiyamap/monautil/hdkeychain"
 	"github.com/wakiyamap/monawallet/internal/zero"

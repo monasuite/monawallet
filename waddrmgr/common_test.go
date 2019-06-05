@@ -12,7 +12,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/wakiyamap/monad/chaincfg"
+	"github.com/monasuite/monad/chaincfg"
 	"github.com/wakiyamap/monawallet/walletdb"
 	_ "github.com/wakiyamap/monawallet/walletdb/bdb"
 )

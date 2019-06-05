@@ -8,7 +8,7 @@ package wtxmgr
 import (
 	"fmt"
 
-	"github.com/wakiyamap/monad/chaincfg/chainhash"
+	"github.com/monasuite/monad/chaincfg/chainhash"
 	"github.com/wakiyamap/monautil"
 	"github.com/wakiyamap/monawallet/walletdb"
 )

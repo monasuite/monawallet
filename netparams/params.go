@@ -4,7 +4,7 @@
 
 package netparams
 
-import "github.com/wakiyamap/monad/chaincfg"
+import "github.com/monasuite/monad/chaincfg"
 
 // Params is used to group parameters for various networks such as the main
 // network and test networks.
