@@ -14,11 +14,11 @@ import (
 	"runtime"
 	"sync"
 
-	"github.com/wakiyamap/monawallet/chain"
-	"github.com/wakiyamap/monawallet/rpc/legacyrpc"
-	"github.com/wakiyamap/monawallet/wallet"
-	"github.com/wakiyamap/monawallet/walletdb"
-	"github.com/wakiyamap/neutrino"
+	"github.com/monasuite/monawallet/chain"
+	"github.com/monasuite/monawallet/rpc/legacyrpc"
+	"github.com/monasuite/monawallet/wallet"
+	"github.com/monasuite/monawallet/walletdb"
+	"github.com/monasuite/neutrino"
 )
 
 var (

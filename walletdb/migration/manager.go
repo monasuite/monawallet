@@ -4,7 +4,7 @@ import (
 	"errors"
 	"sort"
 
-	"github.com/wakiyamap/monawallet/walletdb"
+	"github.com/monasuite/monawallet/walletdb"
 )
 
 var (

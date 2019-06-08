@@ -14,8 +14,8 @@ import (
 
 	"github.com/monasuite/monad/chaincfg/chainhash"
 	"github.com/monasuite/monad/wire"
-	"github.com/wakiyamap/monautil"
-	"github.com/wakiyamap/monawallet/walletdb"
+	"github.com/monasuite/monautil"
+	"github.com/monasuite/monawallet/walletdb"
 )
 
 type queryState struct {

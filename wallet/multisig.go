@@ -9,9 +9,9 @@ import (
 	"errors"
 
 	"github.com/monasuite/monad/txscript"
-	"github.com/wakiyamap/monautil"
-	"github.com/wakiyamap/monawallet/waddrmgr"
-	"github.com/wakiyamap/monawallet/walletdb"
+	"github.com/monasuite/monautil"
+	"github.com/monasuite/monawallet/waddrmgr"
+	"github.com/monasuite/monawallet/walletdb"
 )
 
 // MakeMultiSigScript creates a multi-signature script that can be redeemed with

@@ -11,11 +11,11 @@ import (
 	"github.com/monasuite/monad/chaincfg"
 	"github.com/monasuite/monad/txscript"
 	"github.com/monasuite/monad/wire"
-	"github.com/wakiyamap/monautil"
-	"github.com/wakiyamap/monawallet/wallet/txrules"
+	"github.com/monasuite/monautil"
+	"github.com/monasuite/monawallet/wallet/txrules"
 
-	h "github.com/wakiyamap/monawallet/internal/helpers"
-	"github.com/wakiyamap/monawallet/wallet/internal/txsizes"
+	h "github.com/monasuite/monawallet/internal/helpers"
+	"github.com/monasuite/monawallet/wallet/internal/txsizes"
 )
 
 // InputSource provides transaction inputs referencing spendable outputs to

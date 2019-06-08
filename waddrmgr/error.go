@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/wakiyamap/monautil/hdkeychain"
+	"github.com/monasuite/monautil/hdkeychain"
 )
 
 var (

@@ -1,8 +1,8 @@
 package wtxmgr
 
 import (
-	"github.com/wakiyamap/monawallet/walletdb"
-	"github.com/wakiyamap/monawallet/walletdb/migration"
+	"github.com/monasuite/monawallet/walletdb"
+	"github.com/monasuite/monawallet/walletdb/migration"
 )
 
 // versions is a list of the different database versions. The last entry should

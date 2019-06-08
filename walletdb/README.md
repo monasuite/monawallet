@@ -1,8 +1,8 @@
 walletdb
 ========
 
-[![Build Status](https://travis-ci.org/wakiyamap/monawallet.png?branch=master)]
-(https://travis-ci.org/wakiyamap/monawallet)
+[![Build Status](https://travis-ci.org/monasuite/monawallet.png?branch=master)]
+(https://travis-ci.org/monasuite/monawallet)
 
 Package walletdb provides a namespaced database interface for monawallet.
 
@@ -43,27 +43,27 @@ boltdb project at https://github.com/boltdb/bolt by Ben B. Johnson.
 
 ## Documentation
 
-[![GoDoc](https://godoc.org/github.com/wakiyamap/monawallet/walletdb?status.png)]
-(http://godoc.org/github.com/wakiyamap/monawallet/walletdb)
+[![GoDoc](https://godoc.org/github.com/monasuite/monawallet/walletdb?status.png)]
+(http://godoc.org/github.com/monasuite/monawallet/walletdb)
 
 Full `go doc` style documentation for the project can be viewed online without
 installing this package by using the GoDoc site here:
-http://godoc.org/github.com/wakiyamap/monawallet/walletdb
+http://godoc.org/github.com/monasuite/monawallet/walletdb
 
 You can also view the documentation locally once the package is installed with
 the `godoc` tool by running `godoc -http=":6060"` and pointing your browser to
-http://localhost:6060/pkg/github.com/wakiyamap/monawallet/walletdb
+http://localhost:6060/pkg/github.com/monasuite/monawallet/walletdb
 
 ## Installation
 
 ```bash
-$ go get github.com/wakiyamap/monawallet/walletdb
+$ go get github.com/monasuite/monawallet/walletdb
 ```
 
 ## Examples
 
 * [Basic Usage Example]
-  (http://godoc.org/github.com/wakiyamap/monawallet/walletdb#example-package--BasicUsage)  
+  (http://godoc.org/github.com/monasuite/monawallet/walletdb#example-package--BasicUsage)  
   Demonstrates creating a new database, getting a namespace from it, and using a
   managed read-write transaction against the namespace to store and retrieve
   data.

@@ -22,12 +22,12 @@ import (
 	"github.com/monasuite/monad/rpcclient"
 	"github.com/monasuite/monad/txscript"
 	"github.com/monasuite/monad/wire"
-	"github.com/wakiyamap/monautil"
-	"github.com/wakiyamap/monawallet/chain"
-	"github.com/wakiyamap/monawallet/waddrmgr"
-	"github.com/wakiyamap/monawallet/wallet"
-	"github.com/wakiyamap/monawallet/wallet/txrules"
-	"github.com/wakiyamap/monawallet/wtxmgr"
+	"github.com/monasuite/monautil"
+	"github.com/monasuite/monawallet/chain"
+	"github.com/monasuite/monawallet/waddrmgr"
+	"github.com/monasuite/monawallet/wallet"
+	"github.com/monasuite/monawallet/wallet/txrules"
+	"github.com/monasuite/monawallet/wtxmgr"
 )
 
 // confirmed checks whether a transaction at height txHeight has met minconf

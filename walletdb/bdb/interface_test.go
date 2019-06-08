@@ -16,7 +16,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/wakiyamap/monawallet/walletdb/walletdbtest"
+	"github.com/monasuite/monawallet/walletdb/walletdbtest"
 )
 
 // TestInterface performs all interfaces tests for this database driver.

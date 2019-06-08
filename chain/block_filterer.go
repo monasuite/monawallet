@@ -4,8 +4,8 @@ import (
 	"github.com/monasuite/monad/chaincfg"
 	"github.com/monasuite/monad/txscript"
 	"github.com/monasuite/monad/wire"
-	"github.com/wakiyamap/monautil"
-	"github.com/wakiyamap/monawallet/waddrmgr"
+	"github.com/monasuite/monautil"
+	"github.com/monasuite/monawallet/waddrmgr"
 )
 
 // BlockFilterer is used to iteratively scan blocks for a set of addresses of

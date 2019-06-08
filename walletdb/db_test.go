@@ -9,8 +9,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/wakiyamap/monawallet/walletdb"
-	_ "github.com/wakiyamap/monawallet/walletdb/bdb"
+	"github.com/monasuite/monawallet/walletdb"
+	_ "github.com/monasuite/monawallet/walletdb/bdb"
 )
 
 var (

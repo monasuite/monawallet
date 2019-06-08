@@ -9,7 +9,7 @@ import (
 	"os"
 
 	"github.com/coreos/bbolt"
-	"github.com/wakiyamap/monawallet/walletdb"
+	"github.com/monasuite/monawallet/walletdb"
 )
 
 // convertErr converts some bolt errors to the equivalent walletdb error.

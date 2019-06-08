@@ -5,9 +5,9 @@ import (
 
 	"github.com/monasuite/monad/chaincfg/chainhash"
 	"github.com/monasuite/monad/wire"
-	"github.com/wakiyamap/monautil"
-	"github.com/wakiyamap/monawallet/chain"
-	"github.com/wakiyamap/monawallet/waddrmgr"
+	"github.com/monasuite/monautil"
+	"github.com/monasuite/monawallet/chain"
+	"github.com/monasuite/monawallet/waddrmgr"
 )
 
 type mockChainClient struct {

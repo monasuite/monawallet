@@ -52,12 +52,12 @@ import (
 	"fmt"
 	"path/filepath"
 
-	pb "github.com/wakiyamap/monawallet/rpc/walletrpc"
+	pb "github.com/monasuite/monawallet/rpc/walletrpc"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 
-	"github.com/wakiyamap/monautil"
+	"github.com/monasuite/monautil"
 )
 
 var certificateFile = filepath.Join(monautil.AppDataDir("monawallet", false), "rpc.cert")
@@ -394,7 +394,7 @@ Full instructions for this procedure can be found
 Generate Python stubs from the `.proto`:
 
 ```bash
-$ protoc -I /path/to/wakiyamap/monawallet/rpc --python_out=. --grpc_out=. \
+$ protoc -I /path/to/monasuite/monawallet/rpc --python_out=. --grpc_out=. \
   --plugin=protoc-gen-grpc=$(which grpc_python_plugin) \
   /path/to/monawallet/rpc/api.proto
 ```

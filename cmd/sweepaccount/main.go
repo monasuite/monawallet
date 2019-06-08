@@ -18,11 +18,11 @@ import (
 	"github.com/monasuite/monad/rpcclient"
 	"github.com/monasuite/monad/txscript"
 	"github.com/monasuite/monad/wire"
-	"github.com/wakiyamap/monautil"
-	"github.com/wakiyamap/monawallet/internal/cfgutil"
-	"github.com/wakiyamap/monawallet/netparams"
-	"github.com/wakiyamap/monawallet/wallet/txauthor"
-	"github.com/wakiyamap/monawallet/wallet/txrules"
+	"github.com/monasuite/monautil"
+	"github.com/monasuite/monawallet/internal/cfgutil"
+	"github.com/monasuite/monawallet/netparams"
+	"github.com/monasuite/monawallet/wallet/txauthor"
+	"github.com/monasuite/monawallet/wallet/txrules"
 )
 
 var (

@@ -4,6 +4,6 @@
 
 package main
 
-import "github.com/wakiyamap/monawallet/netparams"
+import "github.com/monasuite/monawallet/netparams"
 
 var activeNet = &netparams.MainNetParams

@@ -15,7 +15,7 @@ import (
 	"github.com/monasuite/monad/chaincfg"
 	"github.com/monasuite/monad/chaincfg/chainhash"
 	"github.com/monasuite/monad/txscript"
-	"github.com/wakiyamap/monautil"
+	"github.com/monasuite/monautil"
 
 	"github.com/davecgh/go-spew/spew"
 )

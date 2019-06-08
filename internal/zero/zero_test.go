@@ -10,7 +10,7 @@ import (
 	"strings"
 	"testing"
 
-	. "github.com/wakiyamap/monawallet/internal/zero"
+	. "github.com/monasuite/monawallet/internal/zero"
 )
 
 func makeOneBytes(n int) []byte {

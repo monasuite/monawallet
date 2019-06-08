@@ -8,11 +8,11 @@ import (
 	"testing"
 
 	"github.com/monasuite/monad/wire"
-	"github.com/wakiyamap/monautil"
-	. "github.com/wakiyamap/monawallet/wallet/txauthor"
-	"github.com/wakiyamap/monawallet/wallet/txrules"
+	"github.com/monasuite/monautil"
+	. "github.com/monasuite/monawallet/wallet/txauthor"
+	"github.com/monasuite/monawallet/wallet/txrules"
 
-	"github.com/wakiyamap/monawallet/wallet/internal/txsizes"
+	"github.com/monasuite/monawallet/wallet/internal/txsizes"
 )
 
 func p2pkhOutputs(amounts ...monautil.Amount) []*wire.TxOut {

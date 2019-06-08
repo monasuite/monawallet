@@ -4,7 +4,7 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/wakiyamap/monawallet/wallet"
+	"github.com/monasuite/monawallet/wallet"
 )
 
 // Harness holds the BranchRecoveryState being tested, the recovery window being

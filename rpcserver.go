@@ -16,10 +16,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/wakiyamap/monautil"
-	"github.com/wakiyamap/monawallet/rpc/legacyrpc"
-	"github.com/wakiyamap/monawallet/rpc/rpcserver"
-	"github.com/wakiyamap/monawallet/wallet"
+	"github.com/monasuite/monautil"
+	"github.com/monasuite/monawallet/rpc/legacyrpc"
+	"github.com/monasuite/monawallet/rpc/rpcserver"
+	"github.com/monasuite/monawallet/wallet"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 )

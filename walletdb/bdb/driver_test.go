@@ -10,8 +10,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/wakiyamap/monawallet/walletdb"
-	_ "github.com/wakiyamap/monawallet/walletdb/bdb"
+	"github.com/monasuite/monawallet/walletdb"
+	_ "github.com/monasuite/monawallet/walletdb/bdb"
 )
 
 // dbType is the database type name for this driver.

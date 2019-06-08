@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/wakiyamap/monautil"
+	"github.com/monasuite/monautil"
 )
 
 // AmountFlag embeds a monautil.Amount and implements the flags.Marshaler and

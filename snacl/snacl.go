@@ -15,7 +15,7 @@ import (
 
 	"github.com/btcsuite/golangcrypto/nacl/secretbox"
 	"github.com/btcsuite/golangcrypto/scrypt"
-	"github.com/wakiyamap/monawallet/internal/zero"
+	"github.com/monasuite/monawallet/internal/zero"
 )
 
 var (

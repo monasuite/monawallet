@@ -16,9 +16,9 @@ import (
 	"github.com/monasuite/monad/chaincfg"
 	"github.com/monasuite/monad/chaincfg/chainhash"
 	"github.com/monasuite/monad/wire"
-	"github.com/wakiyamap/monautil"
-	"github.com/wakiyamap/monawallet/walletdb"
-	_ "github.com/wakiyamap/monawallet/walletdb/bdb"
+	"github.com/monasuite/monautil"
+	"github.com/monasuite/monawallet/walletdb"
+	_ "github.com/monasuite/monawallet/walletdb/bdb"
 )
 
 // Received transaction output for mainnet outpoint

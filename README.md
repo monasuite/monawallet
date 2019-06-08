@@ -1,7 +1,7 @@
 monawallet
 =========
 
-[![Build Status](https://travis-ci.org/wakiyamap/monawallet.png?branch=master)](https://travis-ci.org/wakiyamap/monawallet)
+[![Build Status](https://travis-ci.org/monasuite/monawallet.png?branch=master)](https://travis-ci.org/monasuite/monawallet)
 [![Build status](https://ci.appveyor.com/api/projects/status/88nxvckdj8upqr36/branch/master?svg=true)](https://ci.appveyor.com/project/jrick/monawallet/branch/master)
 
 monawallet is a daemon handling bitcoin wallet functionality for a
@@ -62,7 +62,7 @@ Install the latest MSIs available here:
 
 https://github.com/monasuite/monad/releases
 
-https://github.com/wakiyamap/monawallet/releases
+https://github.com/monasuite/monawallet/releases
 
 ### Windows/Linux/BSD/POSIX - Build from source
 
@@ -96,8 +96,8 @@ For a first time installation, the project and dependency sources can be
 obtained manually with `git` and `glide` (create directories as needed):
 
 ```
-git clone https://github.com/wakiyamap/monawallet $GOPATH/src/github.com/wakiyamap/monawallet
-cd $GOPATH/src/github.com/wakiyamap/monawallet
+git clone https://github.com/monasuite/monawallet $GOPATH/src/github.com/monasuite/monawallet
+cd $GOPATH/src/github.com/monasuite/monawallet
 glide install
 ```
 
@@ -105,7 +105,7 @@ To update an existing source tree, pull the latest changes and install the
 matching dependencies:
 
 ```
-cd $GOPATH/src/github.com/wakiyamap/monawallet
+cd $GOPATH/src/github.com/monasuite/monawallet
 git pull
 glide install
 ```
@@ -166,16 +166,16 @@ RPC username and password.
 
 PowerShell (Installed from MSI):
 ```
-PS> cp "$env:ProgramFiles\Wakiyamap\Monad\sample-monad.conf" $env:LOCALAPPDATA\Wakiyamap\monad.conf
-PS> cp "$env:ProgramFiles\Wakiyamap\Monawallet\sample-monawallet.conf" $env:LOCALAPPDATA\Monawallet\monawallet.conf
+PS> cp "$env:ProgramFiles\monasuite\Monad\sample-monad.conf" $env:LOCALAPPDATA\monasuite\monad.conf
+PS> cp "$env:ProgramFiles\monasuite\Monawallet\sample-monawallet.conf" $env:LOCALAPPDATA\Monawallet\monawallet.conf
 PS> $editor $env:LOCALAPPDATA\Monad\monad.conf
 PS> $editor $env:LOCALAPPDATA\Monawallet\monawallet.conf
 ```
 
 PowerShell (Installed from source):
 ```
-PS> cp $env:GOPATH\src\github.com\wakiyamap\monad\sample-monad.conf $env:LOCALAPPDATA\Btcd\monad.conf
-PS> cp $env:GOPATH\src\github.com\wakiyamap\monawallet\sample-monawallet.conf $env:LOCALAPPDATA\Monawallet\monawallet.conf
+PS> cp $env:GOPATH\src\github.com\monasuite\monad\sample-monad.conf $env:LOCALAPPDATA\Btcd\monad.conf
+PS> cp $env:GOPATH\src\github.com\monasuite\monawallet\sample-monawallet.conf $env:LOCALAPPDATA\Monawallet\monawallet.conf
 PS> $editor $env:LOCALAPPDATA\Monad\monad.conf
 PS> $editor $env:LOCALAPPDATA\Monawallet\monawallet.conf
 ```
@@ -183,14 +183,14 @@ PS> $editor $env:LOCALAPPDATA\Monawallet\monawallet.conf
 Linux/BSD/POSIX (Installed from source):
 ```bash
 $ cp $GOPATH/src/github.com/monasuite/monad/sample-monad.conf ~/.monad/monad.conf
-$ cp $GOPATH/src/github.com/wakiyamap/monawallet/sample-monawallet.conf ~/.monawallet/monawallet.conf
+$ cp $GOPATH/src/github.com/monasuite/monawallet/sample-monawallet.conf ~/.monawallet/monawallet.conf
 $ $EDITOR ~/.monad/monad.conf
 $ $EDITOR ~/.monawallet/monawallet.conf
 ```
 
 ## Issue Tracker
 
-The [integrated github issue tracker](https://github.com/wakiyamap/monawallet/issues)
+The [integrated github issue tracker](https://github.com/monasuite/monawallet/issues)
 is used for this project.
 
 ## GPG Verification Key

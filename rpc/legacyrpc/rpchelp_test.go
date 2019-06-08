@@ -19,7 +19,7 @@ import (
 	"testing"
 
 	"github.com/monasuite/monad/btcjson"
-	"github.com/wakiyamap/monawallet/internal/rpchelp"
+	"github.com/monasuite/monawallet/internal/rpchelp"
 )
 
 func serverMethods() map[string]struct{} {

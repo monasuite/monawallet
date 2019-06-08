@@ -14,12 +14,12 @@ import (
 
 	"github.com/jrick/logrotate/rotator"
 	"github.com/monasuite/monad/rpcclient"
-	"github.com/wakiyamap/monawallet/chain"
-	"github.com/wakiyamap/monawallet/rpc/legacyrpc"
-	"github.com/wakiyamap/monawallet/rpc/rpcserver"
-	"github.com/wakiyamap/monawallet/wallet"
-	"github.com/wakiyamap/monawallet/wtxmgr"
-	"github.com/wakiyamap/neutrino"
+	"github.com/monasuite/monawallet/chain"
+	"github.com/monasuite/monawallet/rpc/legacyrpc"
+	"github.com/monasuite/monawallet/rpc/rpcserver"
+	"github.com/monasuite/monawallet/wallet"
+	"github.com/monasuite/monawallet/wtxmgr"
+	"github.com/monasuite/neutrino"
 )
 
 // logWriter implements an io.Writer that outputs to both standard output and

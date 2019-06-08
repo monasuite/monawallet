@@ -8,7 +8,7 @@ import (
 	"github.com/monasuite/monad/blockchain"
 	"github.com/monasuite/monad/wire"
 
-	h "github.com/wakiyamap/monawallet/internal/helpers"
+	h "github.com/monasuite/monawallet/internal/helpers"
 )
 
 // Worst case script and input/output size estimates.

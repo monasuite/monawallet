@@ -10,7 +10,7 @@ import (
 
 	"github.com/monasuite/monad/chaincfg/chainhash"
 	"github.com/monasuite/monad/wire"
-	"github.com/wakiyamap/monautil"
+	"github.com/monasuite/monautil"
 )
 
 // Note: The following common types should never reference the Wallet type.

@@ -16,12 +16,12 @@ import (
 	"time"
 
 	flags "github.com/jessevdk/go-flags"
-	"github.com/wakiyamap/monautil"
-	"github.com/wakiyamap/monawallet/internal/cfgutil"
-	"github.com/wakiyamap/monawallet/internal/legacy/keystore"
-	"github.com/wakiyamap/monawallet/netparams"
-	"github.com/wakiyamap/monawallet/wallet"
-	"github.com/wakiyamap/neutrino"
+	"github.com/monasuite/monautil"
+	"github.com/monasuite/monawallet/internal/cfgutil"
+	"github.com/monasuite/monawallet/internal/legacy/keystore"
+	"github.com/monasuite/monawallet/netparams"
+	"github.com/monasuite/monawallet/wallet"
+	"github.com/monasuite/neutrino"
 )
 
 const (

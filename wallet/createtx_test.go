@@ -15,11 +15,11 @@ import (
 	"github.com/monasuite/monad/chaincfg/chainhash"
 	"github.com/monasuite/monad/txscript"
 	"github.com/monasuite/monad/wire"
-	"github.com/wakiyamap/monautil/hdkeychain"
-	"github.com/wakiyamap/monawallet/waddrmgr"
-	"github.com/wakiyamap/monawallet/walletdb"
-	_ "github.com/wakiyamap/monawallet/walletdb/bdb"
-	"github.com/wakiyamap/monawallet/wtxmgr"
+	"github.com/monasuite/monautil/hdkeychain"
+	"github.com/monasuite/monawallet/waddrmgr"
+	"github.com/monasuite/monawallet/walletdb"
+	_ "github.com/monasuite/monawallet/walletdb/bdb"
+	"github.com/monasuite/monawallet/wtxmgr"
 )
 
 // TestTxToOutput checks that no new address is added to he database if we

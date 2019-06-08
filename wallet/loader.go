@@ -12,9 +12,9 @@ import (
 	"time"
 
 	"github.com/monasuite/monad/chaincfg"
-	"github.com/wakiyamap/monawallet/internal/prompt"
-	"github.com/wakiyamap/monawallet/waddrmgr"
-	"github.com/wakiyamap/monawallet/walletdb"
+	"github.com/monasuite/monawallet/internal/prompt"
+	"github.com/monasuite/monawallet/waddrmgr"
+	"github.com/monasuite/monawallet/walletdb"
 )
 
 const (

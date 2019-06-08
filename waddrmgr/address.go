@@ -11,10 +11,10 @@ import (
 
 	"github.com/monasuite/monad/btcec"
 	"github.com/monasuite/monad/txscript"
-	"github.com/wakiyamap/monautil"
-	"github.com/wakiyamap/monautil/hdkeychain"
-	"github.com/wakiyamap/monawallet/internal/zero"
-	"github.com/wakiyamap/monawallet/walletdb"
+	"github.com/monasuite/monautil"
+	"github.com/monasuite/monautil/hdkeychain"
+	"github.com/monasuite/monawallet/internal/zero"
+	"github.com/monasuite/monawallet/walletdb"
 )
 
 // AddressType represents the various address types waddrmgr is currently able

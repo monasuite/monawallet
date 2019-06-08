@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/monasuite/monad/chaincfg"
-	"github.com/wakiyamap/monawallet/walletdb"
+	"github.com/monasuite/monawallet/walletdb"
 )
 
 // applyMigration is a helper function that allows us to assert the state of the

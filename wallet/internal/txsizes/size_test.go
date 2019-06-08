@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/monasuite/monad/wire"
-	. "github.com/wakiyamap/monawallet/wallet/internal/txsizes"
+	. "github.com/monasuite/monawallet/wallet/internal/txsizes"
 )
 
 const (

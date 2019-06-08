@@ -11,11 +11,11 @@ import (
 	"path/filepath"
 
 	"github.com/jessevdk/go-flags"
-	"github.com/wakiyamap/monautil"
-	"github.com/wakiyamap/monawallet/waddrmgr"
-	"github.com/wakiyamap/monawallet/walletdb"
-	_ "github.com/wakiyamap/monawallet/walletdb/bdb"
-	"github.com/wakiyamap/monawallet/wtxmgr"
+	"github.com/monasuite/monautil"
+	"github.com/monasuite/monawallet/waddrmgr"
+	"github.com/monasuite/monawallet/walletdb"
+	_ "github.com/monasuite/monawallet/walletdb/bdb"
+	"github.com/monasuite/monawallet/wtxmgr"
 )
 
 const defaultNet = "mainnet"

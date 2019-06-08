@@ -14,13 +14,13 @@ import (
 	"github.com/monasuite/monad/btcec"
 	"github.com/monasuite/monad/chaincfg"
 	"github.com/monasuite/monad/wire"
-	"github.com/wakiyamap/monautil"
-	"github.com/wakiyamap/monawallet/internal/legacy/keystore"
-	"github.com/wakiyamap/monawallet/internal/prompt"
-	"github.com/wakiyamap/monawallet/waddrmgr"
-	"github.com/wakiyamap/monawallet/wallet"
-	"github.com/wakiyamap/monawallet/walletdb"
-	_ "github.com/wakiyamap/monawallet/walletdb/bdb"
+	"github.com/monasuite/monautil"
+	"github.com/monasuite/monawallet/internal/legacy/keystore"
+	"github.com/monasuite/monawallet/internal/prompt"
+	"github.com/monasuite/monawallet/waddrmgr"
+	"github.com/monasuite/monawallet/wallet"
+	"github.com/monasuite/monawallet/walletdb"
+	_ "github.com/monasuite/monawallet/walletdb/bdb"
 )
 
 // networkDir returns the directory name of a network directory to hold wallet

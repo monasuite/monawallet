@@ -13,8 +13,8 @@ import (
 	"strings"
 
 	"github.com/btcsuite/golangcrypto/ssh/terminal"
-	"github.com/wakiyamap/monautil/hdkeychain"
-	"github.com/wakiyamap/monawallet/internal/legacy/keystore"
+	"github.com/monasuite/monautil/hdkeychain"
+	"github.com/monasuite/monawallet/internal/legacy/keystore"
 )
 
 // ProvideSeed is used to prompt for the wallet seed which maybe required during

@@ -8,7 +8,7 @@ package wallet
 import (
 	"github.com/monasuite/monad/txscript"
 	"github.com/monasuite/monad/wire"
-	"github.com/wakiyamap/monawallet/walletdb"
+	"github.com/monasuite/monawallet/walletdb"
 )
 
 // OutputSelectionPolicy describes the rules for selecting an output from the

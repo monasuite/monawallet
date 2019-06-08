@@ -10,8 +10,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/wakiyamap/monawallet/walletdb"
-	_ "github.com/wakiyamap/monawallet/walletdb/bdb"
+	"github.com/monasuite/monawallet/walletdb"
+	_ "github.com/monasuite/monawallet/walletdb/bdb"
 )
 
 // This example demonstrates creating a new database.
@@ -19,8 +19,8 @@ func ExampleCreate() {
 	// This example assumes the bdb (bolt db) driver is imported.
 	//
 	// import (
-	// 	"github.com/wakiyamap/monawallet/walletdb"
-	// 	_ "github.com/wakiyamap/monawallet/walletdb/bdb"
+	// 	"github.com/monasuite/monawallet/walletdb"
+	// 	_ "github.com/monasuite/monawallet/walletdb/bdb"
 	// )
 
 	// Create a database and schedule it to be closed and removed on exit.
@@ -102,8 +102,8 @@ func Example_basicUsage() {
 	// This example assumes the bdb (bolt db) driver is imported.
 	//
 	// import (
-	// 	"github.com/wakiyamap/monawallet/walletdb"
-	// 	_ "github.com/wakiyamap/monawallet/walletdb/bdb"
+	// 	"github.com/monasuite/monawallet/walletdb"
+	// 	_ "github.com/monasuite/monawallet/walletdb/bdb"
 	// )
 
 	// Create a database and schedule it to be closed and removed on exit.

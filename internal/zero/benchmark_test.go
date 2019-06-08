@@ -7,7 +7,7 @@ package zero_test
 import (
 	"testing"
 
-	. "github.com/wakiyamap/monawallet/internal/zero"
+	. "github.com/monasuite/monawallet/internal/zero"
 )
 
 var (

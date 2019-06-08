@@ -1,8 +1,8 @@
 bdb
 ===
 
-[![Build Status](https://travis-ci.org/wakiyamap/monawallet.png?branch=master)]
-(https://travis-ci.org/wakiyamap/monawallet)
+[![Build Status](https://travis-ci.org/monasuite/monawallet.png?branch=master)]
+(https://travis-ci.org/monasuite/monawallet)
 
 Package bdb implements an driver for walletdb that uses boltdb for the backing
 datastore.  Package bdb is licensed under the copyfree ISC license.
@@ -29,16 +29,16 @@ if err != nil {
 
 ## Documentation
 
-[![GoDoc](https://godoc.org/github.com/wakiyamap/monawallet/walletdb/bdb?status.png)]
-(http://godoc.org/github.com/wakiyamap/monawallet/walletdb/bdb)
+[![GoDoc](https://godoc.org/github.com/monasuite/monawallet/walletdb/bdb?status.png)]
+(http://godoc.org/github.com/monasuite/monawallet/walletdb/bdb)
 
 Full `go doc` style documentation for the project can be viewed online without
 installing this package by using the GoDoc site here:
-http://godoc.org/github.com/wakiyamap/monawallet/walletdb/bdb
+http://godoc.org/github.com/monasuite/monawallet/walletdb/bdb
 
 You can also view the documentation locally once the package is installed with
 the `godoc` tool by running `godoc -http=":6060"` and pointing your browser to
-http://localhost:6060/pkg/github.com/wakiyamap/monawallet/walletdb/bdb
+http://localhost:6060/pkg/github.com/monasuite/monawallet/walletdb/bdb
 
 ## License
 

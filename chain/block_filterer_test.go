@@ -8,8 +8,8 @@ import (
 	"github.com/monasuite/monad/chaincfg"
 	"github.com/monasuite/monad/chaincfg/chainhash"
 	"github.com/monasuite/monad/wire"
-	"github.com/wakiyamap/monautil"
-	"github.com/wakiyamap/monawallet/chain"
+	"github.com/monasuite/monautil"
+	"github.com/monasuite/monawallet/chain"
 )
 
 var Block100000 = wire.MsgBlock{

@@ -7,8 +7,8 @@ package wallet
 
 import (
 	"github.com/monasuite/monad/chaincfg/chainhash"
-	"github.com/wakiyamap/monawallet/walletdb"
-	"github.com/wakiyamap/monawallet/wtxmgr"
+	"github.com/monasuite/monawallet/walletdb"
+	"github.com/monasuite/monawallet/wtxmgr"
 )
 
 type unstableAPI struct {

@@ -21,8 +21,8 @@ import (
 
 	"github.com/btcsuite/websocket"
 	"github.com/monasuite/monad/btcjson"
-	"github.com/wakiyamap/monawallet/chain"
-	"github.com/wakiyamap/monawallet/wallet"
+	"github.com/monasuite/monawallet/chain"
+	"github.com/monasuite/monawallet/wallet"
 )
 
 type websocketClient struct {

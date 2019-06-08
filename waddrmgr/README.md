@@ -1,8 +1,8 @@
 waddrmgr
 ========
 
-[![Build Status](https://travis-ci.org/wakiyamap/monawallet.png?branch=master)]
-(https://travis-ci.org/wakiyamap/monawallet)
+[![Build Status](https://travis-ci.org/monasuite/monawallet.png?branch=master)]
+(https://travis-ci.org/monasuite/monawallet)
 
 Package waddrmgr provides a secure hierarchical deterministic wallet address
 manager.
@@ -41,21 +41,21 @@ report.  Package waddrmgr is licensed under the liberal ISC license.
 
 ## Documentation
 
-[![GoDoc](https://godoc.org/github.com/wakiyamap/monawallet/waddrmgr?status.png)]
-(http://godoc.org/github.com/wakiyamap/monawallet/waddrmgr)
+[![GoDoc](https://godoc.org/github.com/monasuite/monawallet/waddrmgr?status.png)]
+(http://godoc.org/github.com/monasuite/monawallet/waddrmgr)
 
 Full `go doc` style documentation for the project can be viewed online without
 installing this package by using the GoDoc site here:
-http://godoc.org/github.com/wakiyamap/monawallet/waddrmgr
+http://godoc.org/github.com/monasuite/monawallet/waddrmgr
 
 You can also view the documentation locally once the package is installed with
 the `godoc` tool by running `godoc -http=":6060"` and pointing your browser to
-http://localhost:6060/pkg/github.com/wakiyamap/monawallet/waddrmgr
+http://localhost:6060/pkg/github.com/monasuite/monawallet/waddrmgr
 
 ## Installation
 
 ```bash
-$ go get github.com/wakiyamap/monawallet/waddrmgr
+$ go get github.com/monasuite/monawallet/waddrmgr
 ```
 
 Package waddrmgr is licensed under the [copyfree](http://copyfree.org) ISC

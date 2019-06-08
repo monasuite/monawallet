@@ -7,7 +7,7 @@ package bdb
 import (
 	"fmt"
 
-	"github.com/wakiyamap/monawallet/walletdb"
+	"github.com/monasuite/monawallet/walletdb"
 )
 
 const (

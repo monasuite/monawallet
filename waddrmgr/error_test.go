@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/wakiyamap/monawallet/waddrmgr"
+	"github.com/monasuite/monawallet/waddrmgr"
 )
 
 // TestErrorCodeStringer tests the stringized output for the ErrorCode type.

@@ -13,10 +13,10 @@ import (
 	"github.com/monasuite/monad/chaincfg/chainhash"
 	"github.com/monasuite/monad/txscript"
 	"github.com/monasuite/monad/wire"
-	"github.com/wakiyamap/monawallet/chain"
-	"github.com/wakiyamap/monawallet/waddrmgr"
-	"github.com/wakiyamap/monawallet/walletdb"
-	"github.com/wakiyamap/monawallet/wtxmgr"
+	"github.com/monasuite/monawallet/chain"
+	"github.com/monasuite/monawallet/waddrmgr"
+	"github.com/monasuite/monawallet/walletdb"
+	"github.com/monasuite/monawallet/wtxmgr"
 )
 
 const (

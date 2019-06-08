@@ -17,9 +17,9 @@ import (
 	"github.com/davecgh/go-spew/spew"
 	"github.com/monasuite/monad/chaincfg"
 	"github.com/monasuite/monad/chaincfg/chainhash"
-	"github.com/wakiyamap/monautil"
-	"github.com/wakiyamap/monawallet/snacl"
-	"github.com/wakiyamap/monawallet/walletdb"
+	"github.com/monasuite/monautil"
+	"github.com/monasuite/monawallet/snacl"
+	"github.com/monasuite/monawallet/walletdb"
 )
 
 // failingCryptoKey is an implementation of the EncryptorDecryptor interface

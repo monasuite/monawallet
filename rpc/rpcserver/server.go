@@ -8,11 +8,11 @@
 // Full documentation of the API implemented by this package is maintained in a
 // language-agnostic document:
 //
-//   https://github.com/wakiyamap/monawallet/blob/master/rpc/documentation/api.md
+//   https://github.com/monasuite/monawallet/blob/master/rpc/documentation/api.md
 //
 // Any API changes must be performed according to the steps listed here:
 //
-//   https://github.com/wakiyamap/monawallet/blob/master/rpc/documentation/serverchanges.md
+//   https://github.com/monasuite/monawallet/blob/master/rpc/documentation/serverchanges.md
 package rpcserver
 
 import (
@@ -29,16 +29,16 @@ import (
 	"github.com/monasuite/monad/rpcclient"
 	"github.com/monasuite/monad/txscript"
 	"github.com/monasuite/monad/wire"
-	"github.com/wakiyamap/monautil"
-	"github.com/wakiyamap/monautil/hdkeychain"
-	"github.com/wakiyamap/monawallet/chain"
-	"github.com/wakiyamap/monawallet/internal/cfgutil"
-	"github.com/wakiyamap/monawallet/internal/zero"
-	"github.com/wakiyamap/monawallet/netparams"
-	pb "github.com/wakiyamap/monawallet/rpc/walletrpc"
-	"github.com/wakiyamap/monawallet/waddrmgr"
-	"github.com/wakiyamap/monawallet/wallet"
-	"github.com/wakiyamap/monawallet/walletdb"
+	"github.com/monasuite/monautil"
+	"github.com/monasuite/monautil/hdkeychain"
+	"github.com/monasuite/monawallet/chain"
+	"github.com/monasuite/monawallet/internal/cfgutil"
+	"github.com/monasuite/monawallet/internal/zero"
+	"github.com/monasuite/monawallet/netparams"
+	pb "github.com/monasuite/monawallet/rpc/walletrpc"
+	"github.com/monasuite/monawallet/waddrmgr"
+	"github.com/monasuite/monawallet/wallet"
+	"github.com/monasuite/monawallet/walletdb"
 )
 
 // Public API version constants

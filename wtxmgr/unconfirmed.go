@@ -8,7 +8,7 @@ package wtxmgr
 import (
 	"github.com/monasuite/monad/chaincfg/chainhash"
 	"github.com/monasuite/monad/wire"
-	"github.com/wakiyamap/monawallet/walletdb"
+	"github.com/monasuite/monawallet/walletdb"
 )
 
 // insertMemPoolTx inserts the unmined transaction record.  It also marks

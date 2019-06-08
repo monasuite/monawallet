@@ -8,7 +8,7 @@ package helpers
 
 import (
 	"github.com/monasuite/monad/wire"
-	"github.com/wakiyamap/monautil"
+	"github.com/monasuite/monautil"
 )
 
 // SumOutputValues sums up the list of TxOuts and returns an Amount.

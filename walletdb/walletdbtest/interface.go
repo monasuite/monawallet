@@ -9,7 +9,7 @@ import (
 	"os"
 	"reflect"
 
-	"github.com/wakiyamap/monawallet/walletdb"
+	"github.com/monasuite/monawallet/walletdb"
 )
 
 // errSubTestFail is used to signal that a sub test returned false.

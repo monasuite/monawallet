@@ -14,11 +14,11 @@ import (
 	"github.com/monasuite/monad/chaincfg/chainhash"
 	"github.com/monasuite/monad/rpcclient"
 	"github.com/monasuite/monad/wire"
-	"github.com/wakiyamap/monautil"
-	"github.com/wakiyamap/monautil/gcs"
-	"github.com/wakiyamap/monautil/gcs/builder"
-	"github.com/wakiyamap/monawallet/waddrmgr"
-	"github.com/wakiyamap/monawallet/wtxmgr"
+	"github.com/monasuite/monautil"
+	"github.com/monasuite/monautil/gcs"
+	"github.com/monasuite/monautil/gcs/builder"
+	"github.com/monasuite/monawallet/waddrmgr"
+	"github.com/monasuite/monawallet/wtxmgr"
 )
 
 // RPCClient represents a persistent client connection to a bitcoin RPC server

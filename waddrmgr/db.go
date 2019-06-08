@@ -13,7 +13,7 @@ import (
 	"time"
 
 	"github.com/monasuite/monad/chaincfg/chainhash"
-	"github.com/wakiyamap/monawallet/walletdb"
+	"github.com/monasuite/monawallet/walletdb"
 )
 
 var (

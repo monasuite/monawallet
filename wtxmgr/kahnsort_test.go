@@ -7,7 +7,7 @@ import (
 
 	"github.com/monasuite/monad/chaincfg/chainhash"
 	"github.com/monasuite/monad/wire"
-	"github.com/wakiyamap/monawallet/wtxmgr"
+	"github.com/monasuite/monawallet/wtxmgr"
 )
 
 // createTx is a helper method to create random transactions that spend

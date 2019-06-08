@@ -12,11 +12,11 @@ import (
 	"github.com/monasuite/monad/btcec"
 	"github.com/monasuite/monad/txscript"
 	"github.com/monasuite/monad/wire"
-	"github.com/wakiyamap/monautil"
-	"github.com/wakiyamap/monawallet/waddrmgr"
-	"github.com/wakiyamap/monawallet/wallet/txauthor"
-	"github.com/wakiyamap/monawallet/walletdb"
-	"github.com/wakiyamap/monawallet/wtxmgr"
+	"github.com/monasuite/monautil"
+	"github.com/monasuite/monawallet/waddrmgr"
+	"github.com/monasuite/monawallet/wallet/txauthor"
+	"github.com/monasuite/monawallet/walletdb"
+	"github.com/monasuite/monawallet/wtxmgr"
 )
 
 // byAmount defines the methods needed to satisify sort.Interface to

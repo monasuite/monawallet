@@ -11,10 +11,10 @@ import (
 	"github.com/monasuite/monad/chaincfg/chainhash"
 	"github.com/monasuite/monad/txscript"
 	"github.com/monasuite/monad/wire"
-	"github.com/wakiyamap/monautil"
-	"github.com/wakiyamap/monawallet/waddrmgr"
-	"github.com/wakiyamap/monawallet/walletdb"
-	"github.com/wakiyamap/monawallet/wtxmgr"
+	"github.com/monasuite/monautil"
+	"github.com/monasuite/monawallet/waddrmgr"
+	"github.com/monasuite/monawallet/walletdb"
+	"github.com/monasuite/monawallet/wtxmgr"
 )
 
 // TODO: It would be good to send errors during notification creation to the rpc

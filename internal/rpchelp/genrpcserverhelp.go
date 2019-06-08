@@ -13,7 +13,7 @@ import (
 	"strings"
 
 	"github.com/monasuite/monad/btcjson"
-	"github.com/wakiyamap/monawallet/internal/rpchelp"
+	"github.com/monasuite/monawallet/internal/rpchelp"
 )
 
 var outputFile = func() *os.File {

@@ -11,7 +11,7 @@ import (
 
 	"github.com/monasuite/monad/txscript"
 	"github.com/monasuite/monad/wire"
-	"github.com/wakiyamap/monautil"
+	"github.com/monasuite/monautil"
 )
 
 // DefaultRelayFeePerKb is the default minimum relay fee policy for a mempool. monacoin's relayfee*100

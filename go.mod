@@ -1,4 +1,4 @@
-module github.com/wakiyamap/monawallet
+module github.com/monasuite/monawallet
 
 require (
 	github.com/btcsuite/btclog v0.0.0-20170628155309-84c8d2346e9f
@@ -10,10 +10,10 @@ require (
 	github.com/jessevdk/go-flags v1.4.0
 	github.com/jrick/logrotate v1.0.0
 	github.com/lightninglabs/gozmq v0.0.0-20180324010646-462a8a753885
-	github.com/monasuite/monad v0.0.0-20190316043608-a9a7a7c9ca5c
-	github.com/wakiyamap/monautil v0.0.0-20190122162447-650da7231055
-	github.com/wakiyamap/neutrino v0.0.0-20190317162137-0d489a5a823e
-	golang.org/x/crypto v0.0.0-20190313024323-a1f597ede03a
-	golang.org/x/net v0.0.0-20190313220215-9f648a60d977
+	github.com/monasuite/monad v0.0.0-20190606163121-f0d2a15b1f44
+	github.com/monasuite/monautil v0.0.0-20190606162653-90b266792864
+	github.com/monasuite/neutrino v0.0.0-20190606165554-f2e38dac24d6
+	golang.org/x/crypto v0.0.0-20190605123033-f99c8df09eb5
+	golang.org/x/net v0.0.0-20190603091049-60506f45cf65
 	google.golang.org/grpc v1.19.0
 )
