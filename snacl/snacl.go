@@ -13,9 +13,9 @@ import (
 	"io"
 	"runtime/debug"
 
-	"github.com/btcsuite/golangcrypto/nacl/secretbox"
-	"github.com/btcsuite/golangcrypto/scrypt"
 	"github.com/monasuite/monawallet/internal/zero"
+	"golang.org/x/crypto/nacl/secretbox"
+	"golang.org/x/crypto/scrypt"
 )
 
 var (

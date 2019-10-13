@@ -1,4 +1,4 @@
-package txsizes_test
+package txsizes
 
 import (
 	"bytes"
@@ -6,7 +6,6 @@ import (
 	"testing"
 
 	"github.com/monasuite/monad/wire"
-	. "github.com/monasuite/monawallet/wallet/internal/txsizes"
 )
 
 const (

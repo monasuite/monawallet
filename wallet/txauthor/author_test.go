@@ -2,17 +2,15 @@
 // Use of this source code is governed by an ISC
 // license that can be found in the LICENSE file.
 
-package txauthor_test
+package txauthor
 
 import (
 	"testing"
 
 	"github.com/monasuite/monad/wire"
 	"github.com/monasuite/monautil"
-	. "github.com/monasuite/monawallet/wallet/txauthor"
 	"github.com/monasuite/monawallet/wallet/txrules"
-
-	"github.com/monasuite/monawallet/wallet/internal/txsizes"
+	"github.com/monasuite/monawallet/wallet/txsizes"
 )
 
 func p2pkhOutputs(amounts ...monautil.Amount) []*wire.TxOut {
