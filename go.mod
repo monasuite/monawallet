@@ -2,7 +2,6 @@ module github.com/monasuite/monawallet
 
 require (
 	github.com/btcsuite/btclog v0.0.0-20170628155309-84c8d2346e9f
-	github.com/btcsuite/btcwallet/walletdb v1.0.0
 	github.com/btcsuite/websocket v0.0.0-20150119174127-31079b680792
 	github.com/davecgh/go-spew v1.1.1
 	github.com/golang/protobuf v1.3.1
@@ -19,7 +18,7 @@ require (
 	google.golang.org/grpc v1.18.0
 )
 
-replace github.com/btcsuite/btcwallet/walletdb => ./walletdb
+replace github.com/monasuite/monawallet/walletdb => ./walletdb
 
 replace github.com/monasuite/monawallet/wtxmgr => ./wtxmgr
 
