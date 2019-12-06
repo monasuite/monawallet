@@ -75,8 +75,6 @@ github.com/monasuite/monautil v0.0.0-20190606162653-90b266792864 h1:pMKZU4hTeLss
 github.com/monasuite/monautil v0.0.0-20190606162653-90b266792864/go.mod h1:kIVSL9QpyEYOh60Z7DIAAIhzOd9pHpRbMA3rOqVXOwc=
 github.com/monasuite/monawallet v0.0.0-20190719070505-7e52842c5c05 h1:GNyTcwTQ0+5Kf35c7/SUFOL0QvTyE0SlNV5jAbuxAyw=
 github.com/monasuite/monawallet v0.0.0-20190719070505-7e52842c5c05/go.mod h1:a3CoqtNXIImjdOgmA1SKKWDWhuZVqifoXf49IOyvAYM=
-github.com/monasuite/neutrino v0.0.0-20190606165554-f2e38dac24d6 h1:Eo5FiTzopM9clQM0Wu4p6+MvedHmBMy9zeeACpxDdio=
-github.com/monasuite/neutrino v0.0.0-20190606165554-f2e38dac24d6/go.mod h1:pgjhAVGcnpG4ItxEPARzC6JqT16KwhX+GcY7avWLLok=
 github.com/onsi/ginkgo v1.6.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/ginkgo v1.7.0 h1:WSHQ+IS43OoUrWtD1/bbclrwK8TTH5hzp+umCiuxHgs=
 github.com/onsi/ginkgo v1.7.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=

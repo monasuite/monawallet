@@ -19,7 +19,7 @@ import (
 	"github.com/monasuite/monawallet/rpc/rpcserver"
 	"github.com/monasuite/monawallet/wallet"
 	"github.com/monasuite/monawallet/wtxmgr"
-	"github.com/monasuite/neutrino"
+	"github.com/monaarchives/neutrino"
 )
 
 // logWriter implements an io.Writer that outputs to both standard output and

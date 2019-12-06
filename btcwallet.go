@@ -18,7 +18,7 @@ import (
 	"github.com/monasuite/monawallet/rpc/legacyrpc"
 	"github.com/monasuite/monawallet/wallet"
 	"github.com/monasuite/monawallet/walletdb"
-	"github.com/monasuite/neutrino"
+	"github.com/monaarchives/neutrino"
 )
 
 var (

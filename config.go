@@ -21,7 +21,7 @@ import (
 	"github.com/monasuite/monawallet/internal/legacy/keystore"
 	"github.com/monasuite/monawallet/netparams"
 	"github.com/monasuite/monawallet/wallet"
-	"github.com/monasuite/neutrino"
+	"github.com/monaarchives/neutrino"
 )
 
 const (

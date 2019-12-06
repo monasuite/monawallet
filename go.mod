@@ -15,7 +15,7 @@ require (
 	github.com/monasuite/monawallet/wallet/txsizes v0.0.0-00010101000000-000000000000 // indirect
 	github.com/monasuite/monawallet/walletdb v0.0.0-00010101000000-000000000000
 	github.com/monasuite/monawallet/wtxmgr v0.0.0-00010101000000-000000000000
-	github.com/monasuite/neutrino v0.11.0
+	github.com/monaarchives/neutrino v0.11.0
 	golang.org/x/crypto v0.0.0-20190211182817-74369b46fc67
 	golang.org/x/net v0.0.0-20190206173232-65e2d4e15006
 	google.golang.org/genproto v0.0.0-20190201180003-4b09977fb922 // indirect

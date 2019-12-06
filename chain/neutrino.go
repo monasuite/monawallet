@@ -16,8 +16,8 @@ import (
 	"github.com/monasuite/monautil/gcs/builder"
 	"github.com/monasuite/monawallet/waddrmgr"
 	"github.com/monasuite/monawallet/wtxmgr"
-	"github.com/monasuite/neutrino"
-	"github.com/monasuite/neutrino/headerfs"
+	"github.com/monaarchives/neutrino"
+	"github.com/monaarchives/neutrino/headerfs"
 )
 
 // NeutrinoClient is an implementation of the btcwalet chain.Interface interface.
