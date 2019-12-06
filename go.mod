@@ -13,7 +13,7 @@ require (
 	github.com/monasuite/monawallet/wallet/txauthor v1.0.0
 	github.com/monasuite/monawallet/wallet/txrules v1.0.0
 	github.com/monasuite/monawallet/wallet/txsizes v1.0.0
-	github.com/monasuite/monawallet/walletdb v1.0.0
+	github.com/monasuite/monawallet/walletdb v1.1.0
 	github.com/monasuite/monawallet/wtxmgr v1.0.0
 	github.com/monaarchives/neutrino v0.11.0
 	golang.org/x/crypto v0.0.0-20190211182817-74369b46fc67
