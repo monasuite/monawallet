@@ -10,11 +10,11 @@ require (
 	github.com/lightninglabs/gozmq v0.0.0-20191113021534-d20a764486bf
 	github.com/monasuite/monad v0.20.1-beta
 	github.com/monasuite/monautil v0.0.0-20190606162653-90b266792864
-	github.com/monasuite/monawallet/wallet/txauthor v0.0.0-00010101000000-000000000000
-	github.com/monasuite/monawallet/wallet/txrules v0.0.0-00010101000000-000000000000
-	github.com/monasuite/monawallet/wallet/txsizes v0.0.0-00010101000000-000000000000 // indirect
-	github.com/monasuite/monawallet/walletdb v0.0.0-00010101000000-000000000000
-	github.com/monasuite/monawallet/wtxmgr v0.0.0-00010101000000-000000000000
+	github.com/monasuite/monawallet/wallet/txauthor v1.0.0
+	github.com/monasuite/monawallet/wallet/txrules v1.0.0
+	github.com/monasuite/monawallet/wallet/txsizes v1.0.0
+	github.com/monasuite/monawallet/walletdb v1.0.0
+	github.com/monasuite/monawallet/wtxmgr v1.0.0
 	github.com/monaarchives/neutrino v0.11.0
 	golang.org/x/crypto v0.0.0-20190211182817-74369b46fc67
 	golang.org/x/net v0.0.0-20190206173232-65e2d4e15006
