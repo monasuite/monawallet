@@ -73,8 +73,6 @@ github.com/monasuite/monad v0.0.0-20191002130939-cb322f305e5f h1:vh8iV43Zj9A4m6m
 github.com/monasuite/monad v0.0.0-20191002130939-cb322f305e5f/go.mod h1:ioPgaQSqFuc4H3OHqpXcYKKnPxC8wmg2sGHgrWssO+s=
 github.com/monasuite/monautil v0.0.0-20190606162653-90b266792864 h1:pMKZU4hTeLssZCspx+e7yTjoluCNxcL+OPF6ipqZeHI=
 github.com/monasuite/monautil v0.0.0-20190606162653-90b266792864/go.mod h1:kIVSL9QpyEYOh60Z7DIAAIhzOd9pHpRbMA3rOqVXOwc=
-github.com/monasuite/monawallet v0.0.0-20190719070505-7e52842c5c05 h1:GNyTcwTQ0+5Kf35c7/SUFOL0QvTyE0SlNV5jAbuxAyw=
-github.com/monasuite/monawallet v0.0.0-20190719070505-7e52842c5c05/go.mod h1:a3CoqtNXIImjdOgmA1SKKWDWhuZVqifoXf49IOyvAYM=
 github.com/onsi/ginkgo v1.6.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/ginkgo v1.7.0 h1:WSHQ+IS43OoUrWtD1/bbclrwK8TTH5hzp+umCiuxHgs=
 github.com/onsi/ginkgo v1.7.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
