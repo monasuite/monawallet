@@ -3,7 +3,6 @@ module github.com/monasuite/monawallet/wallet/txsizes
 go 1.12
 
 require (
-	github.com/btcsuite/winsvc v1.0.0 // indirect
 	github.com/kr/pretty v0.1.0 // indirect
 	github.com/monasuite/monad v0.20.1-beta
 	golang.org/x/crypto v0.0.0-20190211182817-74369b46fc67 // indirect
