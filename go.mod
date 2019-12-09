@@ -8,7 +8,7 @@ require (
 	github.com/jessevdk/go-flags v1.4.0
 	github.com/jrick/logrotate v1.0.0
 	github.com/lightninglabs/gozmq v0.0.0-20191113021534-d20a764486bf
-	github.com/monaarchives/neutrino v0.11.0
+	github.com/monaarchives/neutrino v0.11.1
 	github.com/monasuite/monad v0.20.1-beta
 	github.com/monasuite/monautil v0.0.0-20190606162653-90b266792864
 	github.com/monasuite/monawallet/wallet/txauthor v1.0.0
