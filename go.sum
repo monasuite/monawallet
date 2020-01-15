@@ -67,6 +67,8 @@ github.com/lightningnetwork/lnd/ticker v1.0.0 h1:S1b60TEGoTtCe2A0yeB+ecoj/kkS4qp
 github.com/lightningnetwork/lnd/ticker v1.0.0/go.mod h1:iaLXJiVgI1sPANIF2qYYUJXjoksPNvGNYowB8aRbpX0=
 github.com/monaarchives/neutrino v0.11.0 h1:ri9Zqv13TQheEBnoX+xbyrT1biGRiMzZD3rYKU3i8O8=
 github.com/monaarchives/neutrino v0.11.0/go.mod h1:zB9XSqc6VYM7ZGURp2K0xh7BnCnwWay9ynqomXDzpik=
+github.com/monaarchives/neutrino v0.11.1 h1:MMDP4vQfoHBIk6ZjT4RGbvkm56dzzVnlAL/Z50iM+n8=
+github.com/monaarchives/neutrino v0.11.1/go.mod h1:WWzlTF+8WUGO16ox3h8bgLYyU1FkIHRI4dCHf89QBVA=
 github.com/monasuite/monad v0.0.0-20190606163121-f0d2a15b1f44 h1:nt10k6BDn/XVz4pGSaFDvWsUGiFT4mabuyvpWRpgkKM=
 github.com/monasuite/monad v0.0.0-20190606163121-f0d2a15b1f44/go.mod h1:ioPgaQSqFuc4H3OHqpXcYKKnPxC8wmg2sGHgrWssO+s=
 github.com/monasuite/monad v0.0.0-20190614102927-b024b3975103 h1:pMdNXrhEwQSnXkfqeus7Odt/+vEKlR8TA5Acs/xyINs=
@@ -75,6 +77,7 @@ github.com/monasuite/monad v0.20.1-beta h1:3QwRucQa+TsojOF2TXBhhh2NKvx/kwFpbwL/e
 github.com/monasuite/monad v0.20.1-beta/go.mod h1:fu480ISQ0zpvXulpgMCpDH6a2tTxd7VfaNKW+A5db24=
 github.com/monasuite/monautil v0.0.0-20190606162653-90b266792864 h1:pMKZU4hTeLssZCspx+e7yTjoluCNxcL+OPF6ipqZeHI=
 github.com/monasuite/monautil v0.0.0-20190606162653-90b266792864/go.mod h1:kIVSL9QpyEYOh60Z7DIAAIhzOd9pHpRbMA3rOqVXOwc=
+github.com/monasuite/monawallet v0.11.0/go.mod h1:5Ul9Ld/zjFRMI+GUlCJ5+q4KULgoAcb5jOWfx2Ta0iY=
 github.com/onsi/ginkgo v1.6.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/ginkgo v1.7.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/ginkgo v1.8.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=

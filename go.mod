@@ -18,7 +18,6 @@ require (
 	github.com/monasuite/monawallet/wtxmgr v1.0.0
 	golang.org/x/crypto v0.0.0-20190424203555-c05e17bb3b2d
 	golang.org/x/net v0.0.0-20190424112056-4829fb13d2c6
-	google.golang.org/genproto v0.0.0-20190201180003-4b09977fb922 // indirect
 	google.golang.org/grpc v1.18.0
 )
 
