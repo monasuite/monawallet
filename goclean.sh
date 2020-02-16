@@ -7,7 +7,7 @@
 
 set -ex
 
-test_targets=$(go list -deps ./... | grep 'btcwallet')
+test_targets=$(go list -deps ./... | grep 'monawallet')
 
 # Automatic checks
 test -z "$(go fmt $test_targets | tee /dev/stderr)"
