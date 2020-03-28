@@ -8,8 +8,8 @@ import (
 	"io"
 	"os"
 
-	"github.com/coreos/bbolt"
 	"github.com/monasuite/monawallet/walletdb"
+	"go.etcd.io/bbolt"
 )
 
 // convertErr converts some bolt errors to the equivalent walletdb error.
