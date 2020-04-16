@@ -729,17 +729,15 @@ func testImportPrivateKey(tc *testContext) bool {
 	}{
 		{
 			name: "wif for uncompressed pubkey address",
-			in:   "5HueCGU8rMjxEXxiPuD5BDku4MkFqeZyd4dZ1jvhTVqvbTLvyTJ",
+			in:   "T9a3GiNEnz5x7N6EaQGzjwQV8Ae31QbN5yb3PLdDqZfb9bfE6SyP",
 			expected: expectedAddr{
-				address:     "1GAehh7TsJAHuUAeKZcXf5CnwuGuGgyX2S",
-				addressHash: hexToBytes("a65d1a239d4ec666643d350c7bb8fc44d2881128"),
+				address:     "MBr3r5iksjQPtaLSmnXSnQDGgNmmmW5S9M",
+				addressHash: hexToBytes("2b49ecd0cf72006173e6e95acf416b6735b5f889"),
 				internal:    false,
 				imported:    true,
 				compressed:  false,
-				pubKey: hexToBytes("04d0de0aaeaefad02b8bdc8a01a1b8b11c696bd3" +
-					"d66a2c5f10780d95b7df42645cd85228a6fb29940e858e7e558" +
-					"42ae2bd115d1ed7cc0e82d934e929c97648cb0a"),
-				privKey: hexToBytes("0c28fca386c7a227600b2fe50b7cae11ec86d3bf1fbe471be89827e19d72aa1d"),
+				pubKey:      hexToBytes("02d8f88468c5a2e8e1815faf555f59cbd1979e3dbdf823f80c271b6fb70d2d519b"),
+				privKey:     hexToBytes("c27d6581b92785834b381fa697c4b0ffc4574b495743722e0acb7601b1b68b99"),
 				// privKeyWIF is set to the in field during tests
 			},
 		},
@@ -900,7 +898,7 @@ func testImportScript(tc *testContext) bool {
 				"ed9493a9fc20fdb4a714808f0b680f1f1d935277" +
 				"48b5e3f629ffac"),
 			expected: expectedAddr{
-				address:     "3MbyWAu9UaoBewR3cArF1nwf4aQgVwzrA5",
+				address:     "PUW8jboYybxzYcPNq9WBG4YzXoHr4RDsGZ",
 				addressHash: hexToBytes("da6e6a632d96dc5530d7b3c9f3017725d023093e"),
 				internal:    false,
 				imported:    true,
@@ -921,7 +919,7 @@ func testImportScript(tc *testContext) bool {
 				"6ffefb2238af8627363bdf2ed97c1f89784a1aec" +
 				"db43384f11d2acc64443c7fc299cef0400421a53ae"),
 			expected: expectedAddr{
-				address:     "34CRZpt8j81rgh9QhzuBepqPi4cBQSjhjr",
+				address:     "PB6aoFnYE9BfaN7jvyZ7u6SjBHVLzrJN1q",
 				addressHash: hexToBytes("1b800cec1fe92222f36a502c139bed47c5959715"),
 				internal:    false,
 				imported:    true,

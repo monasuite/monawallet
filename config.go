@@ -16,12 +16,12 @@ import (
 	"time"
 
 	flags "github.com/jessevdk/go-flags"
+	"github.com/monaarchives/neutrino"
 	"github.com/monasuite/monautil"
 	"github.com/monasuite/monawallet/internal/cfgutil"
 	"github.com/monasuite/monawallet/internal/legacy/keystore"
 	"github.com/monasuite/monawallet/netparams"
 	"github.com/monasuite/monawallet/wallet"
-	"github.com/monaarchives/neutrino"
 )
 
 const (

@@ -8,12 +8,13 @@ require (
 	github.com/jessevdk/go-flags v1.4.0
 	github.com/jrick/logrotate v1.0.0
 	github.com/lightninglabs/gozmq v0.0.0-20191113021534-d20a764486bf
+	github.com/monaarchives/btcwallet/walletdb v1.3.0
 	github.com/monaarchives/neutrino v0.11.1
 	github.com/monasuite/monad v0.21.1-beta
 	github.com/monasuite/monautil v0.0.0-20190606162653-90b266792864
 	github.com/monasuite/monawallet/wallet/txauthor v1.0.0
 	github.com/monasuite/monawallet/wallet/txrules v1.0.0
-	github.com/monasuite/monawallet/walletdb v1.3.0
+	github.com/monasuite/monawallet/walletdb v1.3.1
 	github.com/monasuite/monawallet/wtxmgr v1.0.0
 	golang.org/x/crypto v0.0.0-20200214034016-1d94cc7ab1c6
 	golang.org/x/net v0.0.0-20190424112056-4829fb13d2c6

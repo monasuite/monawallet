@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/monasuite/monad/chaincfg/chainhash"
-	"github.com/monaarchives/btcwallet/walletdb"
+	"github.com/monasuite/monawallet/walletdb"
 )
 
 // TestStoreMaxReorgDepth ensures that we can only store up to MaxReorgDepth

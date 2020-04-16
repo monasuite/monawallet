@@ -6,6 +6,8 @@ import (
 	"sync"
 	"time"
 
+	"github.com/monaarchives/neutrino"
+	"github.com/monaarchives/neutrino/headerfs"
 	"github.com/monasuite/monad/chaincfg"
 	"github.com/monasuite/monad/chaincfg/chainhash"
 	"github.com/monasuite/monad/rpcclient"
@@ -16,8 +18,6 @@ import (
 	"github.com/monasuite/monautil/gcs/builder"
 	"github.com/monasuite/monawallet/waddrmgr"
 	"github.com/monasuite/monawallet/wtxmgr"
-	"github.com/monaarchives/neutrino"
-	"github.com/monaarchives/neutrino/headerfs"
 )
 
 // NeutrinoClient is an implementation of the btcwalet chain.Interface interface.
@@ -199,6 +199,11 @@ func (s *NeutrinoClient) FilterBlocks(
 	// the filter returns a positive match, the full block is then requested
 	// and scanned for addresses using the block filterer.
 	for i, blk := range req.Blocks {
+		// TODO(wilmer): Investigate why polling it still necessary
+		// here. While testing, I ran into a few instances where the
+		// filter was not retrieved, leading to a panic. This should not
+		// happen in most cases thanks to the query logic revamp within
+		// Neutrino, but it seems there's still an uncovered edge case.
 		filter, err := s.pollCFilter(&blk.Hash)
 		if err != nil {
 			return nil, err
@@ -312,7 +317,9 @@ func (s *NeutrinoClient) pollCFilter(hash *chainhash.Hash) (*gcs.Filter, error) 
 			time.Sleep(100 * time.Millisecond)
 		}
 
-		filter, err = s.CS.GetCFilter(*hash, wire.GCSFilterRegular)
+		filter, err = s.CS.GetCFilter(
+			*hash, wire.GCSFilterRegular, neutrino.OptimisticBatch(),
+		)
 		if err != nil {
 			count++
 			continue

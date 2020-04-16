@@ -13,13 +13,13 @@ import (
 	"github.com/btcsuite/btclog"
 
 	"github.com/jrick/logrotate/rotator"
+	"github.com/monaarchives/neutrino"
 	"github.com/monasuite/monad/rpcclient"
 	"github.com/monasuite/monawallet/chain"
 	"github.com/monasuite/monawallet/rpc/legacyrpc"
 	"github.com/monasuite/monawallet/rpc/rpcserver"
 	"github.com/monasuite/monawallet/wallet"
 	"github.com/monasuite/monawallet/wtxmgr"
-	"github.com/monaarchives/neutrino"
 )
 
 // logWriter implements an io.Writer that outputs to both standard output and
