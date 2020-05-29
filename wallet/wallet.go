@@ -21,7 +21,6 @@ import (
 	"github.com/monasuite/monad/btcjson"
 	"github.com/monasuite/monad/chaincfg"
 	"github.com/monasuite/monad/chaincfg/chainhash"
-	"github.com/monasuite/monad/rpcclient"
 	"github.com/monasuite/monad/txscript"
 	"github.com/monasuite/monad/wire"
 	"github.com/monasuite/monautil"
@@ -64,6 +63,16 @@ var (
 	// request to the wallet but it is in the process of or has already shut
 	// down.
 	ErrWalletShuttingDown = errors.New("wallet shutting down")
+
+	// ErrUnknownTransaction is returned when an attempt is made to label
+	// a transaction that is not known to the wallet.
+	ErrUnknownTransaction = errors.New("cannot label transaction not " +
+		"known to wallet")
+
+	// ErrTxLabelExists is returned when a transaction already has a label
+	// and an attempt has been made to label it without setting overwrite
+	// to true.
+	ErrTxLabelExists = errors.New("transaction already labelled")
 
 	// Namespace bucket keys.
 	waddrmgrNamespaceKey = []byte("waddrmgr")
@@ -1591,6 +1600,58 @@ func (w *Wallet) PubKeyForAddress(a monautil.Address) (*btcec.PublicKey, error) 
 	return pubKey, err
 }
 
+// LabelTransaction adds a label to the transaction with the hash provided. The
+// call will fail if the label is too long, or if the transaction already has
+// a label and the overwrite boolean is not set.
+func (w *Wallet) LabelTransaction(hash chainhash.Hash, label string,
+	overwrite bool) error {
+
+	// Check that the transaction is known to the wallet, and fail if it is
+	// unknown. If the transaction is known, check whether it already has
+	// a label.
+	err := walletdb.View(w.db, func(tx walletdb.ReadTx) error {
+		txmgrNs := tx.ReadBucket(wtxmgrNamespaceKey)
+
+		dbTx, err := w.TxStore.TxDetails(txmgrNs, &hash)
+		if err != nil {
+			return err
+		}
+
+		// If the transaction looked up is nil, it was not found. We
+		// do not allow labelling of unknown transactions so we fail.
+		if dbTx == nil {
+			return ErrUnknownTransaction
+		}
+
+		_, err = wtxmgr.FetchTxLabel(txmgrNs, hash)
+		return err
+	})
+
+	switch err {
+	// If no labels have been written yet, we can silence the error.
+	// Likewise if there is no label, we do not need to do any overwrite
+	// checks.
+	case wtxmgr.ErrNoLabelBucket:
+	case wtxmgr.ErrTxLabelNotFound:
+
+	// If we successfully looked up a label, fail if the overwrite param
+	// is not set.
+	case nil:
+		if !overwrite {
+			return ErrTxLabelExists
+		}
+
+	// In another unrelated error occurred, return it.
+	default:
+		return err
+	}
+
+	return walletdb.Update(w.db, func(tx walletdb.ReadWriteTx) error {
+		txmgrNs := tx.ReadWriteBucket(wtxmgrNamespaceKey)
+		return w.TxStore.PutTxLabel(txmgrNs, hash, label)
+	})
+}
+
 // PrivKeyForAddress looks up the associated private key for a P2PKH or P2PK
 // address.
 func (w *Wallet) PrivKeyForAddress(a monautil.Address) (*btcec.PrivateKey, error) {
@@ -2140,7 +2201,6 @@ func (w *Wallet) GetTransactions(startBlock, endBlock *BlockIdentifier, cancel <
 	// TODO: Fetching block heights by their hashes is inherently racy
 	// because not all block headers are saved but when they are for SPV the
 	// db can be queried directly without this.
-	var startResp, endResp rpcclient.FutureGetBlockVerboseResult
 	if startBlock != nil {
 		if startBlock.hash == nil {
 			start = startBlock.height
@@ -2150,7 +2210,13 @@ func (w *Wallet) GetTransactions(startBlock, endBlock *BlockIdentifier, cancel <
 			}
 			switch client := chainClient.(type) {
 			case *chain.RPCClient:
-				startResp = client.GetBlockVerboseTxAsync(startBlock.hash)
+				startHeader, err := client.GetBlockHeaderVerbose(
+					startBlock.hash,
+				)
+				if err != nil {
+					return nil, err
+				}
+				start = startHeader.Height
 			case *chain.BitcoindClient:
 				var err error
 				start, err = client.GetBlockHeight(startBlock.hash)
@@ -2175,7 +2241,19 @@ func (w *Wallet) GetTransactions(startBlock, endBlock *BlockIdentifier, cancel <
 			}
 			switch client := chainClient.(type) {
 			case *chain.RPCClient:
-				endResp = client.GetBlockVerboseTxAsync(endBlock.hash)
+				endHeader, err := client.GetBlockHeaderVerbose(
+					endBlock.hash,
+				)
+				if err != nil {
+					return nil, err
+				}
+				end = endHeader.Height
+			case *chain.BitcoindClient:
+				var err error
+				start, err = client.GetBlockHeight(endBlock.hash)
+				if err != nil {
+					return nil, err
+				}
 			case *chain.NeutrinoClient:
 				var err error
 				end, err = client.GetBlockHeight(endBlock.hash)
@@ -2184,20 +2262,6 @@ func (w *Wallet) GetTransactions(startBlock, endBlock *BlockIdentifier, cancel <
 				}
 			}
 		}
-	}
-	if startResp != nil {
-		resp, err := startResp.Receive()
-		if err != nil {
-			return nil, err
-		}
-		start = int32(resp.Height)
-	}
-	if endResp != nil {
-		resp, err := endResp.Receive()
-		if err != nil {
-			return nil, err
-		}
-		end = int32(resp.Height)
 	}
 
 	var res GetTransactionsResult
@@ -3094,7 +3158,7 @@ func (w *Wallet) TotalReceivedForAddr(addr monautil.Address, minConf int32) (mon
 // SendOutputs creates and sends payment transactions. It returns the
 // transaction upon success.
 func (w *Wallet) SendOutputs(outputs []*wire.TxOut, account uint32,
-	minconf int32, satPerKb monautil.Amount) (*wire.MsgTx, error) {
+	minconf int32, satPerKb monautil.Amount, label string) (*wire.MsgTx, error) {
 
 	// Ensure the outputs to be created adhere to the network's consensus
 	// rules.
@@ -3118,7 +3182,7 @@ func (w *Wallet) SendOutputs(outputs []*wire.TxOut, account uint32,
 		return nil, err
 	}
 
-	txHash, err := w.reliablyPublishTransaction(createdTx.Tx)
+	txHash, err := w.reliablyPublishTransaction(createdTx.Tx, label)
 	if err != nil {
 		return nil, err
 	}
@@ -3311,8 +3375,8 @@ func (e *ErrReplacement) Unwrap() error {
 //
 // This function is unstable and will be removed once syncing code is moved out
 // of the wallet.
-func (w *Wallet) PublishTransaction(tx *wire.MsgTx) error {
-	_, err := w.reliablyPublishTransaction(tx)
+func (w *Wallet) PublishTransaction(tx *wire.MsgTx, label string) error {
+	_, err := w.reliablyPublishTransaction(tx, label)
 	return err
 }
 
@@ -3321,7 +3385,9 @@ func (w *Wallet) PublishTransaction(tx *wire.MsgTx) error {
 // relevant database state, and finally possible removing the transaction from
 // the database (along with cleaning up all inputs used, and outputs created) if
 // the transaction is rejected by the backend.
-func (w *Wallet) reliablyPublishTransaction(tx *wire.MsgTx) (*chainhash.Hash, error) {
+func (w *Wallet) reliablyPublishTransaction(tx *wire.MsgTx,
+	label string) (*chainhash.Hash, error) {
+
 	chainClient, err := w.requireChainClient()
 	if err != nil {
 		return nil, err
@@ -3336,7 +3402,19 @@ func (w *Wallet) reliablyPublishTransaction(tx *wire.MsgTx) (*chainhash.Hash, er
 		return nil, err
 	}
 	err = walletdb.Update(w.db, func(dbTx walletdb.ReadWriteTx) error {
-		return w.addRelevantTx(dbTx, txRec, nil)
+		if err := w.addRelevantTx(dbTx, txRec, nil); err != nil {
+			return err
+		}
+
+		// If the tx label is empty, we can return early.
+		if len(label) == 0 {
+			return nil
+		}
+
+		// If there is a label we should write, get the namespace key
+		// and record it in the tx store.
+		txmgrNs := dbTx.ReadWriteBucket(wtxmgrNamespaceKey)
+		return w.TxStore.PutTxLabel(txmgrNs, tx.TxHash(), label)
 	})
 	if err != nil {
 		return nil, err
@@ -3579,23 +3657,45 @@ func (w *Wallet) Database() walletdb.DB {
 // Create creates an new wallet, writing it to an empty database.  If the passed
 // seed is non-nil, it is used.  Otherwise, a secure random seed of the
 // recommended length is generated.
-func Create(db walletdb.DB, pubPass, privPass, seed []byte, params *chaincfg.Params,
-	birthday time.Time) error {
+func Create(db walletdb.DB, pubPass, privPass, seed []byte,
+	params *chaincfg.Params, birthday time.Time) error {
 
-	// If a seed was provided, ensure that it is of valid length. Otherwise,
-	// we generate a random seed for the wallet with the recommended seed
-	// length.
-	if seed == nil {
-		hdSeed, err := hdkeychain.GenerateSeed(
-			hdkeychain.RecommendedSeedLen)
-		if err != nil {
-			return err
+	return create(
+		db, pubPass, privPass, seed, params, birthday, false,
+	)
+}
+
+// CreateWatchingOnly creates an new watch-only wallet, writing it to
+// an empty database. No seed can be provided as this wallet will be
+// watching only.  Likewise no private passphrase may be provided
+// either.
+func CreateWatchingOnly(db walletdb.DB, pubPass []byte,
+	params *chaincfg.Params, birthday time.Time) error {
+
+	return create(
+		db, pubPass, nil, nil, params, birthday, true,
+	)
+}
+
+func create(db walletdb.DB, pubPass, privPass, seed []byte,
+	params *chaincfg.Params, birthday time.Time, isWatchingOnly bool) error {
+
+	if !isWatchingOnly {
+		// If a seed was provided, ensure that it is of valid length. Otherwise,
+		// we generate a random seed for the wallet with the recommended seed
+		// length.
+		if seed == nil {
+			hdSeed, err := hdkeychain.GenerateSeed(
+				hdkeychain.RecommendedSeedLen)
+			if err != nil {
+				return err
+			}
+			seed = hdSeed
 		}
-		seed = hdSeed
-	}
-	if len(seed) < hdkeychain.MinSeedBytes ||
-		len(seed) > hdkeychain.MaxSeedBytes {
-		return hdkeychain.ErrInvalidSeedLen
+		if len(seed) < hdkeychain.MinSeedBytes ||
+			len(seed) > hdkeychain.MaxSeedBytes {
+			return hdkeychain.ErrInvalidSeedLen
+		}
 	}
 
 	return walletdb.Update(db, func(tx walletdb.ReadWriteTx) error {
@@ -3609,8 +3709,7 @@ func Create(db walletdb.DB, pubPass, privPass, seed []byte, params *chaincfg.Par
 		}
 
 		err = waddrmgr.Create(
-			addrmgrNs, seed, pubPass, privPass, params, nil,
-			birthday,
+			addrmgrNs, seed, pubPass, privPass, params, nil, birthday,
 		)
 		if err != nil {
 			return err
