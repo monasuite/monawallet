@@ -8,7 +8,7 @@
 
 set -ex
 
-go test -tags="rpctest" ./...
+go test ./...
 
 # Automatic checks
 golangci-lint run --deadline=10m --disable-all \
