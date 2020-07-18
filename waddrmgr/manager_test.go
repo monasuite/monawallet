@@ -731,29 +731,29 @@ func testImportPrivateKey(tc *testContext) bool {
 	}{
 		{
 			name: "wif for uncompressed pubkey address",
-			in:   "T9a3GiNEnz5x7N6EaQGzjwQV8Ae31QbN5yb3PLdDqZfb9bfE6SyP",
+			in:   "6vtsDUCgu6yHGBaa92x4skmZHa2LmMz4sNuh54tUhqJFELE28eh",
 			expected: expectedAddr{
-				address:     "MBr3r5iksjQPtaLSmnXSnQDGgNmmmW5S9M",
-				addressHash: hexToBytes("2b49ecd0cf72006173e6e95acf416b6735b5f889"),
+				address:     "MK6CkTbJa9nuqCSqaeKmAFyUmPYd1rWS6Q",
+				addressHash: hexToBytes("7ac00f979ff0df2fdcb65761dc8f9ef8b37142db"),
 				internal:    false,
 				imported:    true,
 				compressed:  false,
-				pubKey:      hexToBytes("02d8f88468c5a2e8e1815faf555f59cbd1979e3dbdf823f80c271b6fb70d2d519b"),
-				privKey:     hexToBytes("c27d6581b92785834b381fa697c4b0ffc4574b495743722e0acb7601b1b68b99"),
+				pubKey:      hexToBytes("04588d202afcc1ee4ab5254c7847ec25b9a135bbda0f2bc69ee1a714749fd77dc9f88ff2a00d7e752d44cbe16e1ebcf0890b76ec7c78886109dee76ccfc8445424"),
+				privKey:     hexToBytes("e9873d79c6d87dc0fb6a5778633389f4453213303da61f20bd67fc233aa33262"),
 				// privKeyWIF is set to the in field during tests
 			},
 		},
 		{
 			name: "wif for compressed pubkey address",
-			in:   "KwdMAjGmerYanjeui5SHS7JkmpZvVipYvB2LJGU1ZxJwYvP98617",
+			in:   "T9ZV9h1ZkYfgh2E2h5CZbEzrc32nz3uK2KjhA1Amu7JzNo99YGxg",
 			expected: expectedAddr{
-				address:     "1LoVGDgRs9hTfTNJNuXKSpywcbdvwRXpmK",
-				addressHash: hexToBytes("d9351dcbad5b8f3b8bfa2f2cdc85c28118ca9326"),
+				address:     "MN3qk8taHHcLp52tf6v9V4CyfiJuCpwz4B",
+				addressHash: hexToBytes("9b36125ffb425aa481515d44264fd247aed7b70a"),
 				internal:    false,
 				imported:    true,
 				compressed:  true,
-				pubKey:      hexToBytes("02d0de0aaeaefad02b8bdc8a01a1b8b11c696bd3d66a2c5f10780d95b7df42645c"),
-				privKey:     hexToBytes("0c28fca386c7a227600b2fe50b7cae11ec86d3bf1fbe471be89827e19d72aa1d"),
+				pubKey:      hexToBytes("0251ce5368b2ac47b6e7fb7222c1180ea0012e4891b56cefb8d9d187bc7ad11659"),
+				privKey:     hexToBytes("c234762e070eb028641bb14289ecf9b13e1da40bc876b0cb54724aa0cf007213"),
 				// privKeyWIF is set to the in field during tests
 			},
 		},
