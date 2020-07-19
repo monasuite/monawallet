@@ -620,11 +620,7 @@ func testInternalAddresses(tc *testContext) bool {
 		return false
 	}
 	tc.unlocked = false
-	if !testResults() {
-		return false
-	}
-
-	return true
+	return !(!testResults())
 }
 
 // testLocking tests the basic locking semantics of the address manager work
@@ -873,11 +869,7 @@ func testImportPrivateKey(tc *testContext) bool {
 		return false
 	}
 	tc.unlocked = false
-	if !testResults() {
-		return false
-	}
-
-	return true
+	return !(!testResults())
 }
 
 // testImportScript tests that importing scripts works properly.  It ensures
@@ -1041,11 +1033,7 @@ func testImportScript(tc *testContext) bool {
 		return false
 	}
 	tc.unlocked = false
-	if !testResults() {
-		return false
-	}
-
-	return true
+	return !(!testResults())
 }
 
 // testMarkUsed ensures used addresses are flagged as such.
@@ -1370,10 +1358,7 @@ func testNewAccount(tc *testContext) bool {
 		return err
 	})
 	wantErrCode = ErrInvalidAccount
-	if !checkManagerError(tc.t, testName, err, wantErrCode) {
-		return false
-	}
-	return true
+	return !(!checkManagerError(tc.t, testName, err, wantErrCode))
 }
 
 // testLookupAccount tests the basic account lookup func of the address manager
@@ -1527,10 +1512,7 @@ func testRenameAccount(tc *testContext) bool {
 		return err
 	})
 	wantErrCode = ErrAccountNotFound
-	if !checkManagerError(tc.t, testName, err, wantErrCode) {
-		return false
-	}
-	return true
+	return !(!checkManagerError(tc.t, testName, err, wantErrCode))
 }
 
 // testForEachAccount tests the retrieve all accounts func of the address

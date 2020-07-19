@@ -704,7 +704,7 @@ func TestImportPrivateKey(t *testing.T) {
 	}
 
 	// import priv key
-	wif, err := monautil.NewWIF((*btcec.PrivateKey)(pk), tstNetParams, false)
+	wif, err := monautil.NewWIF(pk, tstNetParams, false)
 	if err != nil {
 		t.Fatal(err)
 	}

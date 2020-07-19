@@ -425,7 +425,6 @@ func (m *Manager) Close() {
 	m.masterKeyPub.Zero()
 
 	m.closed = true
-	return
 }
 
 // NewScopedKeyManager creates a new scoped key manager from the root manager. A
@@ -587,8 +586,8 @@ func (m *Manager) ScopesForExternalAddrType(addrType AddressType) []KeyScope {
 	m.mtx.RLock()
 	defer m.mtx.RUnlock()
 
-	scopes, _ := m.externalAddrSchemas[addrType]
-	return scopes
+	//scopes, _ := m.externalAddrSchemas[addrType]
+	return m.externalAddrSchemas[addrType]
 }
 
 // ScopesForInternalAddrTypes returns the set of key scopes that are able to
@@ -597,8 +596,8 @@ func (m *Manager) ScopesForInternalAddrTypes(addrType AddressType) []KeyScope {
 	m.mtx.RLock()
 	defer m.mtx.RUnlock()
 
-	scopes, _ := m.internalAddrSchemas[addrType]
-	return scopes
+	//scopes, _ := m.internalAddrSchemas[addrType]
+	return m.internalAddrSchemas[addrType]
 }
 
 // NeuterRootKey is a special method that should be used once a caller is

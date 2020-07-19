@@ -11,7 +11,6 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/monasuite/monad/btcec"
 	"github.com/monasuite/monad/chaincfg"
 	"github.com/monasuite/monad/wire"
 	"github.com/monasuite/monautil"
@@ -60,7 +59,7 @@ func convertLegacyKeystore(legacyKeyStore *keystore.Store, w *wallet.Wallet) err
 				continue
 			}
 
-			wif, err := monautil.NewWIF((*btcec.PrivateKey)(privKey),
+			wif, err := monautil.NewWIF(privKey,
 				netParams, addr.Compressed())
 			if err != nil {
 				fmt.Printf("WARN: Failed to create wallet "+
