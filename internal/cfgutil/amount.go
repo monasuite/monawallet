@@ -5,10 +5,11 @@
 package cfgutil
 
 import (
-	"strconv"
+	//"strconv"
 	"strings"
 
 	"github.com/monasuite/monautil"
+	"github.com/shopspring/decimal"
 )
 
 // AmountFlag embeds a monautil.Amount and implements the flags.Marshaler and
@@ -29,12 +30,13 @@ func (a *AmountFlag) MarshalFlag() (string, error) {
 
 // UnmarshalFlag satisifes the flags.Unmarshaler interface.
 func (a *AmountFlag) UnmarshalFlag(value string) error {
-	value = strings.TrimSuffix(value, " BTC")
-	valueF64, err := strconv.ParseFloat(value, 64)
+	value = strings.TrimSuffix(value, " MONA")
+	//valueF64, err := strconv.ParseFloat(value, 64)
+	ValueDecimal, err := decimal.NewFromString(value)
 	if err != nil {
 		return err
 	}
-	amount, err := monautil.NewAmount(valueF64)
+	amount, err := monautil.NewAmount(ValueDecimal)
 	if err != nil {
 		return err
 	}

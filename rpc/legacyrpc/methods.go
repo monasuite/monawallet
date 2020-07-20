@@ -28,6 +28,7 @@ import (
 	"github.com/monasuite/monawallet/wallet"
 	"github.com/monasuite/monawallet/wallet/txrules"
 	"github.com/monasuite/monawallet/wtxmgr"
+	"github.com/shopspring/decimal"
 )
 
 // confirmed checks whether a transaction at height txHeight has met minconf
@@ -1439,7 +1440,7 @@ func sendFrom(icmd interface{}, w *wallet.Wallet, chainClient *chain.RPCClient) 
 		return nil, ErrNeedPositiveMinconf
 	}
 	// Create map of address and amount pairs.
-	amt, err := monautil.NewAmount(cmd.Amount)
+	amt, err := monautil.NewAmount(decimal.NewFromFloat(cmd.Amount))
 	if err != nil {
 		return nil, err
 	}
@@ -1482,7 +1483,7 @@ func sendMany(icmd interface{}, w *wallet.Wallet) (interface{}, error) {
 	// Recreate address/amount pairs, using dcrutil.Amount.
 	pairs := make(map[string]monautil.Amount, len(cmd.Amounts))
 	for k, v := range cmd.Amounts {
-		amt, err := monautil.NewAmount(v)
+		amt, err := monautil.NewAmount(decimal.NewFromFloat(v))
 		if err != nil {
 			return nil, err
 		}
@@ -1509,7 +1510,7 @@ func sendToAddress(icmd interface{}, w *wallet.Wallet) (interface{}, error) {
 		}
 	}
 
-	amt, err := monautil.NewAmount(cmd.Amount)
+	amt, err := monautil.NewAmount(decimal.NewFromFloat(cmd.Amount))
 	if err != nil {
 		return nil, err
 	}

@@ -23,6 +23,7 @@ import (
 	"github.com/monasuite/monawallet/netparams"
 	"github.com/monasuite/monawallet/wallet/txauthor"
 	"github.com/monasuite/monawallet/wallet/txrules"
+	"github.com/shopspring/decimal"
 )
 
 var (
@@ -146,7 +147,7 @@ func makeInputSource(outputs []btcjson.ListUnspentResult) txauthor.InputSource {
 		sourceErr       error
 	)
 	for _, output := range outputs {
-		outputAmount, err := monautil.NewAmount(output.Amount)
+		outputAmount, err := monautil.NewAmount(decimal.NewFromFloat(output.Amount))
 		if err != nil {
 			sourceErr = fmt.Errorf(
 				"invalid amount `%v` in listunspent result",
