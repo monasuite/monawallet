@@ -1,8 +1,8 @@
 waddrmgr
 ========
 
-[![Build Status](https://travis-ci.org/monasuite/monawallet.png?branch=master)]
-(https://travis-ci.org/monasuite/monawallet)
+[![Build Status](https://github.com/monasuite/monawallet/workflows/Build%20and%20Test/badge.svg)](https://github.com/monasuite/monawallet/actions)
+
 
 Package waddrmgr provides a secure hierarchical deterministic wallet address
 manager.

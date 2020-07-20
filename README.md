@@ -1,8 +1,9 @@
 monawallet
 =========
 
-[![Build Status](https://travis-ci.org/monasuite/monawallet.png?branch=master)](https://travis-ci.org/monasuite/monawallet)
-[![Build status](https://ci.appveyor.com/api/projects/status/88nxvckdj8upqr36/branch/master?svg=true)](https://ci.appveyor.com/project/jrick/monawallet/branch/master)
+[![Build Status](https://github.com/monasuite/monawallet/workflows/Build%20and%20Test/badge.svg)](https://github.com/monasuite/monawallet/actions)
+[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](https://pkg.go.dev/github.com/monasuite/monawallet)
+
 
 monawallet is a daemon handling bitcoin wallet functionality for a
 single user.  It acts as both an RPC client to monad and an RPC server
