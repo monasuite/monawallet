@@ -1771,7 +1771,11 @@ func Create(ns walletdb.ReadWriteBucket,
 
 	// Use the genesis block for the passed chain as the created at block
 	// for the default.
-	createdAt := &BlockStamp{Hash: *chainParams.GenesisHash, Height: 0}
+	createdAt := &BlockStamp{
+		Hash:      *chainParams.GenesisHash,
+		Height:    0,
+		Timestamp: chainParams.GenesisBlock.Header.Timestamp,
+	}
 
 	// Create the initial sync state.
 	syncInfo := newSyncState(createdAt, createdAt)

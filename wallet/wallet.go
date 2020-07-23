@@ -315,9 +315,9 @@ func (w *Wallet) SetChainSynced(synced bool) {
 // activeData returns the currently-active receiving addresses and all unspent
 // outputs.  This is primarely intended to provide the parameters for a
 // rescan request.
-func (w *Wallet) activeData(dbtx walletdb.ReadTx) ([]monautil.Address, []wtxmgr.Credit, error) {
+func (w *Wallet) activeData(dbtx walletdb.ReadWriteTx) ([]monautil.Address, []wtxmgr.Credit, error) {
 	addrmgrNs := dbtx.ReadBucket(waddrmgrNamespaceKey)
-	txmgrNs := dbtx.ReadBucket(wtxmgrNamespaceKey)
+	txmgrNs := dbtx.ReadWriteBucket(wtxmgrNamespaceKey)
 
 	var addrs []monautil.Address
 	err := w.Manager.ForEachRelevantActiveAddress(
@@ -329,6 +329,16 @@ func (w *Wallet) activeData(dbtx walletdb.ReadTx) ([]monautil.Address, []wtxmgr.
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// Before requesting the list of spendable UTXOs, we'll delete any
+	// expired output locks.
+	err = w.TxStore.DeleteExpiredLockedOutputs(
+		dbtx.ReadWriteBucket(wtxmgrNamespaceKey),
+	)
+	if err != nil {
+		return nil, nil, err
+	}
+
 	unspent, err := w.TxStore.UnspentOutputs(txmgrNs)
 	return addrs, unspent, err
 }
@@ -508,7 +518,7 @@ func (w *Wallet) syncWithChain(birthdayStamp *waddrmgr.BlockStamp) error {
 		addrs   []monautil.Address
 		unspent []wtxmgr.Credit
 	)
-	err = walletdb.View(w.db, func(dbtx walletdb.ReadTx) error {
+	err = walletdb.Update(w.db, func(dbtx walletdb.ReadWriteTx) error {
 		addrs, unspent, err = w.activeData(dbtx)
 		return err
 	})
@@ -2854,6 +2864,42 @@ func (w *Wallet) LockedOutpoints() []btcjson.TransactionInput {
 	return locked
 }
 
+// LeaseOutput locks an output to the given ID, preventing it from being
+// available for coin selection. The absolute time of the lock's expiration is
+// returned. The expiration of the lock can be extended by successive
+// invocations of this call.
+//
+// Outputs can be unlocked before their expiration through `UnlockOutput`.
+// Otherwise, they are unlocked lazily through calls which iterate through all
+// known outputs, e.g., `CalculateBalance`, `ListUnspent`.
+//
+// If the output is not known, ErrUnknownOutput is returned. If the output has
+// already been locked to a different ID, then ErrOutputAlreadyLocked is
+// returned.
+//
+// NOTE: This differs from LockOutpoint in that outputs are locked for a limited
+// amount of time and their locks are persisted to disk.
+func (w *Wallet) LeaseOutput(id wtxmgr.LockID, op wire.OutPoint) (time.Time, error) {
+	var expiry time.Time
+	err := walletdb.Update(w.db, func(tx walletdb.ReadWriteTx) error {
+		ns := tx.ReadWriteBucket(wtxmgrNamespaceKey)
+		var err error
+		expiry, err = w.TxStore.LockOutput(ns, id, op)
+		return err
+	})
+	return expiry, err
+}
+
+// ReleaseOutput unlocks an output, allowing it to be available for coin
+// selection if it remains unspent. The ID should match the one used to
+// originally lock the output.
+func (w *Wallet) ReleaseOutput(id wtxmgr.LockID, op wire.OutPoint) error {
+	return walletdb.Update(w.db, func(tx walletdb.ReadWriteTx) error {
+		ns := tx.ReadWriteBucket(wtxmgrNamespaceKey)
+		return w.TxStore.UnlockOutput(ns, id, op)
+	})
+}
+
 // resendUnminedTxs iterates through all transactions that spend from wallet
 // credits that are not known to have been mined into a block, and attempts
 // to send each to the chain server for relay.
@@ -3569,8 +3615,12 @@ func (w *Wallet) publishTransaction(tx *wire.MsgTx) (*chainhash.Hash, error) {
 
 	// Returned by bitcoind on the RPC when broadcasting a transaction that
 	// is spending either output that is missing or already spent.
+	//
 	// https://github.com/bitcoin/bitcoin/blob/9bf5768dd628b3a7c30dd42b5ed477a92c4d3540/src/node/transaction.cpp#L49
-	case match(err, "missing inputs"):
+	// https://github.com/bitcoin/bitcoin/blob/0.20/src/validation.cpp#L642
+	case match(err, "missing inputs") ||
+		match(err, "bad-txns-inputs-missingorspent"):
+
 		returnErr = &ErrDoubleSpend{
 			backendError: err,
 		}
