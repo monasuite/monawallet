@@ -1432,7 +1432,7 @@ func sendFrom(icmd interface{}, w *wallet.Wallet, chainClient *chain.RPCClient) 
 	}
 
 	// Check that signed integer parameters are positive.
-	if cmd.Amount < 0 {
+	if cmd.Amount.Cmp(decimal.NewFromInt(0)) != 1 {
 		return nil, ErrNeedPositiveAmount
 	}
 	minConf := int32(*cmd.MinConf)
@@ -1440,7 +1440,7 @@ func sendFrom(icmd interface{}, w *wallet.Wallet, chainClient *chain.RPCClient) 
 		return nil, ErrNeedPositiveMinconf
 	}
 	// Create map of address and amount pairs.
-	amt, err := monautil.NewAmount(decimal.NewFromFloat(cmd.Amount))
+	amt, err := monautil.NewAmount(cmd.Amount)
 	if err != nil {
 		return nil, err
 	}
@@ -1483,7 +1483,7 @@ func sendMany(icmd interface{}, w *wallet.Wallet) (interface{}, error) {
 	// Recreate address/amount pairs, using dcrutil.Amount.
 	pairs := make(map[string]monautil.Amount, len(cmd.Amounts))
 	for k, v := range cmd.Amounts {
-		amt, err := monautil.NewAmount(decimal.NewFromFloat(v))
+		amt, err := monautil.NewAmount(v)
 		if err != nil {
 			return nil, err
 		}
@@ -1510,7 +1510,7 @@ func sendToAddress(icmd interface{}, w *wallet.Wallet) (interface{}, error) {
 		}
 	}
 
-	amt, err := monautil.NewAmount(decimal.NewFromFloat(cmd.Amount))
+	amt, err := monautil.NewAmount(cmd.Amount)
 	if err != nil {
 		return nil, err
 	}
@@ -1535,7 +1535,7 @@ func setTxFee(icmd interface{}, w *wallet.Wallet) (interface{}, error) {
 	cmd := icmd.(*btcjson.SetTxFeeCmd)
 
 	// Check that amount is not negative.
-	if cmd.Amount < 0 {
+	if cmd.Amount.Cmp(decimal.NewFromInt(0)) != 1 {
 		return nil, ErrNeedPositiveAmount
 	}
 
