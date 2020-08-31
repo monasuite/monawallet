@@ -32,6 +32,7 @@ import (
 	"github.com/monasuite/monawallet/walletdb"
 	"github.com/monasuite/monawallet/walletdb/migration"
 	"github.com/monasuite/monawallet/wtxmgr"
+	"github.com/shopspring/decimal"
 )
 
 const (
@@ -1911,7 +1912,7 @@ func listTransactions(tx walletdb.ReadTx, details *wtxmgr.TxDetails, addrMgr *wa
 	send := len(details.Debits) != 0
 
 	// Fee can only be determined if every input is a debit.
-	var feeF64 float64
+	var feeDecimal decimal.Decimal
 	if len(details.Debits) == len(details.MsgTx.TxIn) {
 		var debitTotal monautil.Amount
 		for _, deb := range details.Debits {
@@ -1924,7 +1925,8 @@ func listTransactions(tx walletdb.ReadTx, details *wtxmgr.TxDetails, addrMgr *wa
 		// Note: The actual fee is debitTotal - outputTotal.  However,
 		// this RPC reports negative numbers for fees, so the inverse
 		// is calculated.
-		feeF64 = (outputTotal - debitTotal).ToBTC()
+		var tempFee = outputTotal - debitTotal
+		feeDecimal = tempFee.ToDecimalBTC()
 	}
 
 outputs:
@@ -1961,7 +1963,8 @@ outputs:
 			}
 		}
 
-		amountF64 := monautil.Amount(output.Value).ToBTC()
+		tempAmount := monautil.Amount(output.Value)
+		amountDecimal := tempAmount.ToDecimalBTC()
 		result := btcjson.ListTransactionsResult{
 			// Fields left zeroed:
 			//   InvolvesWatchOnly
@@ -1996,14 +1999,14 @@ outputs:
 
 		if send || spentCredit {
 			result.Category = "send"
-			result.Amount = -amountF64
-			result.Fee = &feeF64
+			result.Amount = amountDecimal.Mul(decimal.NewFromInt(-1))
+			result.Fee = &feeDecimal
 			results = append(results, result)
 		}
 		if isCredit {
 			result.Account = accountName
 			result.Category = recvCat
-			result.Amount = amountF64
+			result.Amount = amountDecimal
 			result.Fee = nil
 			results = append(results, result)
 		}
@@ -2634,12 +2637,13 @@ func (w *Wallet) ListUnspent(minconf, maxconf int32,
 				spendable = true
 			}
 
+			tempAmount := output.Amount
 			result := &btcjson.ListUnspentResult{
 				TxID:          output.OutPoint.Hash.String(),
 				Vout:          output.OutPoint.Index,
 				Account:       acctName,
 				ScriptPubKey:  hex.EncodeToString(output.PkScript),
-				Amount:        output.Amount.ToBTC(),
+				Amount:        tempAmount.ToDecimalBTC(),
 				Confirmations: int64(confs),
 				Spendable:     spendable,
 			}

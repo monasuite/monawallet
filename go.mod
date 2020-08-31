@@ -16,7 +16,7 @@ require (
 	github.com/monasuite/monawallet/walletdb v1.3.3
 	github.com/monasuite/monawallet/wtxmgr v1.2.0
 	github.com/shopspring/decimal v1.2.0
-	golang.org/x/crypto v0.0.0-20200510223506-06a226fb4e37
+	golang.org/x/crypto v0.0.0-20200820211705-5c72a883971a
 	golang.org/x/net v0.0.0-20190424112056-4829fb13d2c6
 	google.golang.org/grpc v1.18.0
 )

@@ -506,8 +506,9 @@ func getInfo(icmd interface{}, w *wallet.Wallet, chainClient *chain.RPCClient) (
 	// TODO(davec): This should probably have a database version as opposed
 	// to using the manager version.
 	info.WalletVersion = int32(waddrmgr.LatestMgrVersion)
-	info.Balance = bal.ToBTC()
-	info.PaytxFee = float64(txrules.DefaultRelayFeePerKb)
+	info.Balance = bal.ToDecimalBTC()
+	tempPaytxFee := txrules.DefaultRelayFeePerKb
+	info.PaytxFee = tempPaytxFee.ToDecimalUnit(monautil.AmountSatoshi)
 	// We don't set the following since they don't make much sense in the
 	// wallet architecture:
 	//  - unlocked_until
@@ -834,7 +835,7 @@ func getTransaction(icmd interface{}, w *wallet.Wallet) (interface{}, error) {
 		debitTotal  monautil.Amount
 		creditTotal monautil.Amount // Excludes change
 		fee         monautil.Amount
-		feeF64      float64
+		feeDeicmal  decimal.Decimal
 	)
 	for _, deb := range details.Debits {
 		debitTotal += deb.Amount
@@ -851,7 +852,7 @@ func getTransaction(icmd interface{}, w *wallet.Wallet) (interface{}, error) {
 			outputTotal += monautil.Amount(output.Value)
 		}
 		fee = debitTotal - outputTotal
-		feeF64 = fee.ToBTC()
+		feeDeicmal = fee.ToDecimalBTC()
 	}
 
 	if len(details.Debits) == 0 {
@@ -874,10 +875,10 @@ func getTransaction(icmd interface{}, w *wallet.Wallet) (interface{}, error) {
 			// details for transaction outputs, just like
 			// listtransactions (but using the short result format).
 			Category: "send",
-			Amount:   (-debitTotal).ToBTC(), // negative since it is a send
-			Fee:      &feeF64,
+			Amount:   debitTotal.ToDecimalBTC().Mul(decimal.NewFromInt(-1)), // negative since it is a send
+			Fee:      &feeDeicmal,
 		}
-		ret.Fee = feeF64
+		ret.Fee = feeDeicmal
 	}
 
 	credCat := wallet.RecvCategory(details, syncBlock.Height, w.ChainParams()).String()
@@ -910,12 +911,12 @@ func getTransaction(icmd interface{}, w *wallet.Wallet) (interface{}, error) {
 			Account:  accountName,
 			Address:  address,
 			Category: credCat,
-			Amount:   cred.Amount.ToBTC(),
+			Amount:   cred.Amount.ToDecimalBTC(),
 			Vout:     cred.Index,
 		})
 	}
 
-	ret.Amount = creditTotal.ToBTC()
+	ret.Amount = creditTotal.ToDecimalBTC()
 	return ret, nil
 }
 
@@ -1086,7 +1087,7 @@ func listReceivedByAccount(icmd interface{}, w *wallet.Wallet) (interface{}, err
 	for _, result := range results {
 		jsonResults = append(jsonResults, btcjson.ListReceivedByAccountResult{
 			Account:       result.AccountName,
-			Amount:        result.TotalReceived.ToBTC(),
+			Amount:        result.TotalReceived.ToDecimalBTC(),
 			Confirmations: uint64(result.LastConfirmation),
 		})
 	}
@@ -1183,7 +1184,7 @@ func listReceivedByAddress(icmd interface{}, w *wallet.Wallet) (interface{}, err
 	for address, addrData := range allAddrData {
 		ret[idx] = btcjson.ListReceivedByAddressResult{
 			Address:       address,
-			Amount:        addrData.amount.ToBTC(),
+			Amount:        addrData.amount.ToDecimalBTC(),
 			Confirmations: uint64(addrData.confirmations),
 			TxIDs:         addrData.tx,
 		}
