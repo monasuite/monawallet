@@ -9,7 +9,7 @@ require (
 	github.com/jrick/logrotate v1.0.0
 	github.com/lightninglabs/gozmq v0.0.0-20191113021534-d20a764486bf
 	github.com/monaarchives/neutrino v0.11.1
-	github.com/monasuite/monad v0.22.2-beta
+	github.com/monasuite/monad v0.22.2-beta.0.20200901074503-9bd0d75abfcf
 	github.com/monasuite/monautil v1.1.2
 	github.com/monasuite/monawallet/wallet/txauthor v1.1.0
 	github.com/monasuite/monawallet/wallet/txrules v1.1.0
