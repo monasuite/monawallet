@@ -1913,7 +1913,7 @@ func listTransactions(tx walletdb.ReadTx, details *wtxmgr.TxDetails, addrMgr *wa
 	send := len(details.Debits) != 0
 
 	// Fee can only be determined if every input is a debit.
-	var feeDecimal decimal.Decimal
+	var feeF64 float64
 	if len(details.Debits) == len(details.MsgTx.TxIn) {
 		var debitTotal monautil.Amount
 		for _, deb := range details.Debits {
@@ -1926,8 +1926,7 @@ func listTransactions(tx walletdb.ReadTx, details *wtxmgr.TxDetails, addrMgr *wa
 		// Note: The actual fee is debitTotal - outputTotal.  However,
 		// this RPC reports negative numbers for fees, so the inverse
 		// is calculated.
-		var tempFee = outputTotal - debitTotal
-		feeDecimal = tempFee.ToDecimalBTC()
+		feeF64 = (outputTotal - debitTotal).ToBTC()
 	}
 
 outputs:
@@ -2001,7 +2000,7 @@ outputs:
 		if send || spentCredit {
 			result.Category = "send"
 			result.Amount = amountDecimal.Mul(decimal.NewFromInt(-1))
-			result.Fee = &feeDecimal
+			result.Fee = &feeF64
 			results = append(results, result)
 		}
 		if isCredit {

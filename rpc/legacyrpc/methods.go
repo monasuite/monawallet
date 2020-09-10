@@ -507,8 +507,7 @@ func getInfo(icmd interface{}, w *wallet.Wallet, chainClient *chain.RPCClient) (
 	// to using the manager version.
 	info.WalletVersion = int32(waddrmgr.LatestMgrVersion)
 	info.Balance = bal.ToDecimalBTC()
-	tempPaytxFee := txrules.DefaultRelayFeePerKb
-	info.PaytxFee = tempPaytxFee.ToDecimalUnit(monautil.AmountSatoshi)
+	info.PaytxFee = float64(txrules.DefaultRelayFeePerKb)
 	// We don't set the following since they don't make much sense in the
 	// wallet architecture:
 	//  - unlocked_until
@@ -835,7 +834,7 @@ func getTransaction(icmd interface{}, w *wallet.Wallet) (interface{}, error) {
 		debitTotal  monautil.Amount
 		creditTotal monautil.Amount // Excludes change
 		fee         monautil.Amount
-		feeDeicmal  decimal.Decimal
+		feeF64      float64
 	)
 	for _, deb := range details.Debits {
 		debitTotal += deb.Amount
@@ -852,7 +851,7 @@ func getTransaction(icmd interface{}, w *wallet.Wallet) (interface{}, error) {
 			outputTotal += monautil.Amount(output.Value)
 		}
 		fee = debitTotal - outputTotal
-		feeDeicmal = fee.ToDecimalBTC()
+		feeF64 = fee.ToBTC()
 	}
 
 	if len(details.Debits) == 0 {
@@ -876,9 +875,9 @@ func getTransaction(icmd interface{}, w *wallet.Wallet) (interface{}, error) {
 			// listtransactions (but using the short result format).
 			Category: "send",
 			Amount:   debitTotal.ToDecimalBTC().Mul(decimal.NewFromInt(-1)), // negative since it is a send
-			Fee:      &feeDeicmal,
+			Fee:      &feeF64,
 		}
-		ret.Fee = feeDeicmal
+		ret.Fee = feeF64
 	}
 
 	credCat := wallet.RecvCategory(details, syncBlock.Height, w.ChainParams()).String()
