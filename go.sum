@@ -105,6 +105,7 @@ github.com/monasuite/monautil v1.1.1/go.mod h1:N1fiuHcY7yZtugY+8dUeJyFjcBRJvk1z/
 github.com/monasuite/monautil v1.1.2 h1:TUpcVByvA6PbsFm0LcBAmfDxEsnBmQqxMaRk0syitSs=
 github.com/monasuite/monautil v1.1.2/go.mod h1:KoMmpGVTPshQyrwP5L6Uno09htl1BdVjHI/OhZ+zzA8=
 github.com/monasuite/monautil/psbt v1.0.1/go.mod h1:7WRjsuiM52783pB5V68DM+A5EUFGQEPGZy7wd70Xay4=
+github.com/monasuite/monautil/psbt v1.1.0 h1:+QZ4whA+U3Y1EgSvDZgdtwRa8OPE3fGfClmAjBJw/EQ=
 github.com/monasuite/monautil/psbt v1.1.0/go.mod h1:x3L79SW2/BzpLuvRU2RNEGZmbnlQZ69exKFyld5XKtI=
 github.com/monasuite/monawallet v0.11.0/go.mod h1:J8XEx5OJLCaC61tTst1ZLTPxDHa26X9De1VbtN5Yyao=
 github.com/onsi/ginkgo v1.6.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=

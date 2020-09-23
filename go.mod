@@ -11,6 +11,7 @@ require (
 	github.com/monaarchives/neutrino v0.11.1
 	github.com/monasuite/monad v0.22.1-beta.0.20200921234155-8b13f61e9e4e
 	github.com/monasuite/monautil v1.1.2
+	github.com/monasuite/monautil/psbt v1.1.0
 	github.com/monasuite/monawallet/wallet/txauthor v1.1.0
 	github.com/monasuite/monawallet/wallet/txrules v1.1.0
 	github.com/monasuite/monawallet/walletdb v1.3.3
@@ -30,5 +31,7 @@ replace github.com/monasuite/monawallet/wallet/txauthor => ./wallet/txauthor
 replace github.com/monasuite/monawallet/wallet/txrules => ./wallet/txrules
 
 replace github.com/monasuite/monawallet/wallet/txsizes => ./wallet/txsizes
+
+replace github.com/monasuite/monad => ../monad
 
 go 1.13
