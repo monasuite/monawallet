@@ -32,7 +32,6 @@ import (
 	"github.com/monasuite/monawallet/walletdb"
 	"github.com/monasuite/monawallet/walletdb/migration"
 	"github.com/monasuite/monawallet/wtxmgr"
-	"github.com/shopspring/decimal"
 )
 
 const (
@@ -1963,8 +1962,7 @@ outputs:
 			}
 		}
 
-		tempAmount := monautil.Amount(output.Value)
-		amountDecimal := tempAmount.ToDecimalBTC()
+		amountF64 := monautil.Amount(output.Value).ToBTC()
 		result := btcjson.ListTransactionsResult{
 			// Fields left zeroed:
 			//   InvolvesWatchOnly
@@ -1999,14 +1997,14 @@ outputs:
 
 		if send || spentCredit {
 			result.Category = "send"
-			result.Amount = amountDecimal.Mul(decimal.NewFromInt(-1))
+			result.Amount = -amountF64
 			result.Fee = &feeF64
 			results = append(results, result)
 		}
 		if isCredit {
 			result.Account = accountName
 			result.Category = recvCat
-			result.Amount = amountDecimal
+			result.Amount = amountF64
 			result.Fee = nil
 			results = append(results, result)
 		}
@@ -2637,13 +2635,12 @@ func (w *Wallet) ListUnspent(minconf, maxconf int32,
 				spendable = true
 			}
 
-			tempAmount := output.Amount
 			result := &btcjson.ListUnspentResult{
 				TxID:          output.OutPoint.Hash.String(),
 				Vout:          output.OutPoint.Index,
 				Account:       acctName,
 				ScriptPubKey:  hex.EncodeToString(output.PkScript),
-				Amount:        tempAmount.ToDecimalBTC(),
+				Amount:        output.Amount.ToBTC(),
 				Confirmations: int64(confs),
 				Spendable:     spendable,
 			}

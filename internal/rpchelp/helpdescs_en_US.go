@@ -77,6 +77,7 @@ var helpDescsEnUS = map[string]string{
 	"infowalletresult-errors":          "Any current errors",
 	"infowalletresult-paytxfee":        "The increment used each time more fee is required for an authored transaction",
 	"infowalletresult-balance":         "The balance of all accounts calculated with one block confirmation",
+	"infowalletresult-balance-satoshi": "The balance of all accounts(in satoshi) calculated with one block confirmation",
 	"infowalletresult-walletversion":   "The version of the address manager database",
 	"infowalletresult-unlocked_until":  "Unset",
 	"infowalletresult-keypoolsize":     "Unset",

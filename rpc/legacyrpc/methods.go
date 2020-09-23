@@ -506,7 +506,8 @@ func getInfo(icmd interface{}, w *wallet.Wallet, chainClient *chain.RPCClient) (
 	// TODO(davec): This should probably have a database version as opposed
 	// to using the manager version.
 	info.WalletVersion = int32(waddrmgr.LatestMgrVersion)
-	info.Balance = bal.ToDecimalBTC()
+	info.Balance = bal.ToBTC()
+	info.SatoshiBalance = bal
 	info.PaytxFee = float64(txrules.DefaultRelayFeePerKb)
 	// We don't set the following since they don't make much sense in the
 	// wallet architecture:
@@ -874,7 +875,7 @@ func getTransaction(icmd interface{}, w *wallet.Wallet) (interface{}, error) {
 			// details for transaction outputs, just like
 			// listtransactions (but using the short result format).
 			Category: "send",
-			Amount:   debitTotal.ToDecimalBTC().Mul(decimal.NewFromInt(-1)), // negative since it is a send
+			Amount:   (-debitTotal).ToBTC(), // negative since it is a send
 			Fee:      &feeF64,
 		}
 		ret.Fee = feeF64
@@ -910,12 +911,12 @@ func getTransaction(icmd interface{}, w *wallet.Wallet) (interface{}, error) {
 			Account:  accountName,
 			Address:  address,
 			Category: credCat,
-			Amount:   cred.Amount.ToDecimalBTC(),
+			Amount:   cred.Amount.ToBTC(),
 			Vout:     cred.Index,
 		})
 	}
 
-	ret.Amount = creditTotal.ToDecimalBTC()
+	ret.Amount = creditTotal.ToBTC()
 	return ret, nil
 }
 
@@ -1086,7 +1087,7 @@ func listReceivedByAccount(icmd interface{}, w *wallet.Wallet) (interface{}, err
 	for _, result := range results {
 		jsonResults = append(jsonResults, btcjson.ListReceivedByAccountResult{
 			Account:       result.AccountName,
-			Amount:        result.TotalReceived.ToDecimalBTC(),
+			Amount:        result.TotalReceived.ToBTC(),
 			Confirmations: uint64(result.LastConfirmation),
 		})
 	}
@@ -1183,7 +1184,7 @@ func listReceivedByAddress(icmd interface{}, w *wallet.Wallet) (interface{}, err
 	for address, addrData := range allAddrData {
 		ret[idx] = btcjson.ListReceivedByAddressResult{
 			Address:       address,
-			Amount:        addrData.amount.ToDecimalBTC(),
+			Amount:        addrData.amount.ToBTC(),
 			Confirmations: uint64(addrData.confirmations),
 			TxIDs:         addrData.tx,
 		}
@@ -1432,7 +1433,7 @@ func sendFrom(icmd interface{}, w *wallet.Wallet, chainClient *chain.RPCClient) 
 	}
 
 	// Check that signed integer parameters are positive.
-	if cmd.Amount.Cmp(decimal.NewFromInt(0)) != 1 {
+	if cmd.Amount < 0 {
 		return nil, ErrNeedPositiveAmount
 	}
 	minConf := int32(*cmd.MinConf)
@@ -1440,7 +1441,7 @@ func sendFrom(icmd interface{}, w *wallet.Wallet, chainClient *chain.RPCClient) 
 		return nil, ErrNeedPositiveMinconf
 	}
 	// Create map of address and amount pairs.
-	amt, err := monautil.NewAmount(cmd.Amount)
+	amt, err := monautil.NewAmount(decimal.NewFromFloat(cmd.Amount))
 	if err != nil {
 		return nil, err
 	}
@@ -1483,7 +1484,7 @@ func sendMany(icmd interface{}, w *wallet.Wallet) (interface{}, error) {
 	// Recreate address/amount pairs, using dcrutil.Amount.
 	pairs := make(map[string]monautil.Amount, len(cmd.Amounts))
 	for k, v := range cmd.Amounts {
-		amt, err := monautil.NewAmount(v)
+		amt, err := monautil.NewAmount(decimal.NewFromFloat(v))
 		if err != nil {
 			return nil, err
 		}
@@ -1510,7 +1511,7 @@ func sendToAddress(icmd interface{}, w *wallet.Wallet) (interface{}, error) {
 		}
 	}
 
-	amt, err := monautil.NewAmount(cmd.Amount)
+	amt, err := monautil.NewAmount(decimal.NewFromFloat(cmd.Amount))
 	if err != nil {
 		return nil, err
 	}
@@ -1535,7 +1536,7 @@ func setTxFee(icmd interface{}, w *wallet.Wallet) (interface{}, error) {
 	cmd := icmd.(*btcjson.SetTxFeeCmd)
 
 	// Check that amount is not negative.
-	if cmd.Amount.Cmp(decimal.NewFromInt(0)) != 1 {
+	if cmd.Amount < 0 {
 		return nil, ErrNeedPositiveAmount
 	}
 
