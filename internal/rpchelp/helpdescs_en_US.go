@@ -226,6 +226,8 @@ var helpDescsEnUS = map[string]string{
 	"listtransactionsresult-trusted":            "Unset",
 	"listtransactionsresult-bip125-replaceable": "Unset",
 	"listtransactionsresult-abandoned":          "Unset",
+	"listtransactionsresult-label":              "Unset",
+	"listtransactionsresult-blockheight":        "Unset",
 
 	// ListTransactionsCmd help.
 	"listtransactions--synopsis":        "Returns a JSON array of objects containing verbose details for wallet transactions.",
