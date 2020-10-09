@@ -10,7 +10,7 @@ require (
 	github.com/lightninglabs/gozmq v0.0.0-20191113021534-d20a764486bf
 	github.com/monaarchives/neutrino v0.11.1
 	github.com/monasuite/monad v0.22.1-beta.0.20200923041908-5682eaeb0bcc
-	github.com/monasuite/monautil v1.1.2
+	github.com/monasuite/monautil v1.1.3-0.20201009192835-00d5feaab5bf
 	github.com/monasuite/monautil/psbt v1.1.0
 	github.com/monasuite/monawallet/wallet/txauthor v1.1.0
 	github.com/monasuite/monawallet/wallet/txrules v1.1.0
