@@ -3463,7 +3463,35 @@ func (w *Wallet) reliablyPublishTransaction(tx *wire.MsgTx,
 	if err != nil {
 		return nil, err
 	}
+
+	// Along the way, we'll extract our relevant destination addresses from
+	// the transaction.
+	var ourAddrs []monautil.Address
 	err = walletdb.Update(w.db, func(dbTx walletdb.ReadWriteTx) error {
+		addrmgrNs := dbTx.ReadWriteBucket(waddrmgrNamespaceKey)
+		for _, txOut := range tx.TxOut {
+			_, addrs, _, err := txscript.ExtractPkScriptAddrs(
+				txOut.PkScript, w.chainParams,
+			)
+			if err != nil {
+				// Non-standard outputs can safely be skipped because
+				// they're not supported by the wallet.
+				continue
+			}
+			for _, addr := range addrs {
+				// Skip any addresses which are not relevant to
+				// us.
+				_, err := w.Manager.Address(addrmgrNs, addr)
+				if waddrmgr.IsError(err, waddrmgr.ErrAddressNotFound) {
+					continue
+				}
+				if err != nil {
+					return err
+				}
+				ourAddrs = append(ourAddrs, addr)
+			}
+		}
+
 		if err := w.addRelevantTx(dbTx, txRec, nil); err != nil {
 			return err
 		}
@@ -3485,27 +3513,8 @@ func (w *Wallet) reliablyPublishTransaction(tx *wire.MsgTx,
 	// We'll also ask to be notified of the transaction once it confirms
 	// on-chain. This is done outside of the database transaction to prevent
 	// backend interaction within it.
-	//
-	// NOTE: In some cases, it's possible that the transaction to be
-	// broadcast is not directly relevant to the user's wallet, e.g.,
-	// multisig. In either case, we'll still ask to be notified of when it
-	// confirms to maintain consistency.
-	//
-	// TODO(wilmer): import script as external if the address does not
-	// belong to the wallet to handle confs during restarts?
-	for _, txOut := range tx.TxOut {
-		_, addrs, _, err := txscript.ExtractPkScriptAddrs(
-			txOut.PkScript, w.chainParams,
-		)
-		if err != nil {
-			// Non-standard outputs can safely be skipped because
-			// they're not supported by the wallet.
-			continue
-		}
-
-		if err := chainClient.NotifyReceived(addrs); err != nil {
-			return nil, err
-		}
+	if err := chainClient.NotifyReceived(ourAddrs); err != nil {
+		return nil, err
 	}
 
 	return w.publishTransaction(tx)
